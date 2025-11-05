@@ -1,0 +1,1 @@
+![System Architecture](../img/Sys.svg)
