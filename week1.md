@@ -1,1 +1,1 @@
-![System Architecture](../img/Sys.svg)
+![System Architecture](../img/System Architecture Diagram.svg)
