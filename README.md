@@ -6,3 +6,4 @@ This is a journal of my journey configuring a client server connection.
 
 This is a test upload.
 
+- [Week 1: System Planning](week1.md)
