@@ -2,7 +2,7 @@
 
 ### System Architecture Diagram
 This is the system architecture diagram for my chosen client-server relationship: 
-<img src="/img/System Architecture Diagram.svg" alt="System Architecture Diagram for Raspberry Pi + Desktop PC"/>
+<img src="/img/System Architecture Diagram.svg"/>
 
 ### Distribution Selection Justification
 
