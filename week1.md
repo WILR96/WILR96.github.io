@@ -1,4 +1,4 @@
-# Week 1
+# Week 1 - System Planning and Distribution Selection 
 
 ### System Architecture Diagram
 This is the system architecture diagram for my chosen client-server relationship: 
@@ -26,4 +26,6 @@ Using Windows also makes it easier to document my progress since I can record de
 
 Overall, using Windows 11 as the workstation gives me a stable, well-supported environment with all the tools I need for both server management and coursework documentation.
 
-### Network configuration documentation
+### Network Configuration Documentation
+
+### Document System Specifications
