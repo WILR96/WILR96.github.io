@@ -1,1 +1,1 @@
-![System Architecture](../img/System Architecture Diagram.svg)
+<img src="/img/System Architecture Diagram.svg"/>
