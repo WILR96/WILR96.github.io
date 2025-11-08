@@ -2,7 +2,7 @@
 
 ### System Architecture Diagram
 This is the system architecture diagram for my chosen client-server relationship:
-![System Architecture Diagram](img/week1/SystemArcDiagram.svg)
+![System Architecture Diagram](/img/week1/SystemArcDiagram.svg)
 
 ### Distribution Selection Justification
 
