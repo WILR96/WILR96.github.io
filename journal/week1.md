@@ -49,11 +49,14 @@ I was able to establish an SSH connection to the Raspberry Pi, but using ping fr
 
 This was because of the Windows Defender Firewall blocking pings by default. To allow pinging, I temporarily enabled "ICMPv4 echo requests" using the following PowerShell command:
 
+```powershell
 <code>New-NetFirewallRule -DisplayName "Allow pings" -Protocol ICMPv4 IcmpType 8 -Action Allow</code>
+```
 
 And then removed it with:
-
-<code>Remove-NetFirewallRule -DisplayName "Allow pings"</code>
+```powershell
+Remove-NetFirewallRule -DisplayName "Allow pings"
+```
 
 ![Image showing me pinging the server from my client PC](/img/week1/pingingServerFromClient.png)
 
