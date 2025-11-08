@@ -32,13 +32,13 @@ The Raspberry Pi OS Lite server connects to the same local Wi-Fi network as the 
 
 All administration and access is performed remotely using SSH over port 22.
 
-**Network Overview:**
--Router network: "192.168.1.0/24"
--Router gateway: "192.168.1.254"
--Workstation (Windows 11): "192.168.1.94" (DHCP)
--Raspberry Pi (Server): "192.168.1.64" (Static)
--Connection type: Wireless (wlan0)
--DNS: "8.8.8.8" (Google's Public DNS service)
+#### Network Overview:
+- Router network: "192.168.1.0/24"
+- Router gateway: "192.168.1.254"
+- Workstation (Windows 11): "192.168.1.94" (DHCP)
+- Raspberry Pi (Server): "192.168.1.64" (Static)
+- Connection type: Wireless (wlan0)
+- DNS: "8.8.8.8" (Google's Public DNS service)
 
 ![Image showing the use of "ip addr" and "ip route" on the Raspberry Pi Server](img/ipaddrServer.png)
 
