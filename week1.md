@@ -33,30 +33,48 @@ The Raspberry Pi OS Lite server connects to the same local Wi-Fi network as the 
 All administration and access is performed remotely using SSH over port 22.
 
 **Network Overview:**
-Router network: "192.168.1.0/24"
-Router gateway: "192.168.1.254"
-Workstation (Windows 11): "192.168.1.94" (DHCP)
-Raspberry Pi (Server): "192.168.1.64" (Static)
-Connection type: Wireless (wlan0)
-DNS: "8.8.8.8" (Google's Public DNS service)
+-Router network: "192.168.1.0/24"
+-Router gateway: "192.168.1.254"
+-Workstation (Windows 11): "192.168.1.94" (DHCP)
+-Raspberry Pi (Server): "192.168.1.64" (Static)
+-Connection type: Wireless (wlan0)
+-DNS: "8.8.8.8" (Google's Public DNS service)
 
 ![Image showing the use of "ip addr" and "ip route" on the Raspberry Pi Server](img/ipaddrServer.png)
+
+
+I was able to establish an SSH connection to the Raspberry Pi, but using ping from the Pi to the workstation failed.
+
+![Ping failed Server to client](img/pingFailServer.png)
+
+This was because of the Windows Defender Firewall blocking pings by default. To allow pinging, I temporarily enabled "ICMPv4 echo requests" using the following PowerShell command:
+
+<code>
+
+New-NetFirewallRule -DisplayName "Allow pings" -Protocol ICMPv4 -IcmpType 8 -Action Allow
+
+</code>
+
+And then removed it with:
+
+<code>
+
+Remove-NetFirewallRule -DisplayName "Allow pings"
+
+</code>
 
 ![Image showing me pinging the server from my client PC](img/pingingServerFromClient.png)
 
 ![Image showing me pinging the client PC from the server](img/pingingClientFromServer.png)
-I was able to establish an SSH connection to the Raspberry Pi, but using ping from the Pi to the workstation failed.
 
-This was because of the Windows Defender Firewall blocking pings by default. To allow pinging, I temporarily enabled "ICMPv4 echo requests" using the following PowerShell command:
-<code>
-New-NetFirewallRule -DisplayName "Allow pings" -Protocol ICMPv4 -IcmpType 8 -Action Allow
-</code>
-And then removed it with:
-<code>
-Remove-NetFirewallRule -DisplayName "Allow pings"
-</code>
 The IP address was made static using 'sudo nmtui' and changing the ipv4 configuration to a manual connection, where i could insert the desired ip, gateway, DNS provider.
 
 Although the coursework brief references VirtualBox network settings, in my case the system is deployed on physical hardware rather than a virtual machine. The equivalent network configuration principles still apply, like static IP addressing, gateway definition, and SSH access from the workstation.
 
 ### Document System Specifications
+All commands have been run over ssh from my client machine to the server using the command line:
+
+![Running uname -a on the server over ssh](img/unameServer.png)
+![Running free -h on the server over ssh](img/freeServer.png)
+![Running df -h on the server over ssh](img/dfServer.png)
+![Running lsb_release -a on the server over ssh](img/lsb_releaseServer.png)
