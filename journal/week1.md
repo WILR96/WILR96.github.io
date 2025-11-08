@@ -45,7 +45,7 @@ All administration and access is performed remotely using SSH over port 22.
 
 I was able to establish an SSH connection to the Raspberry Pi, but using ping from the Pi to the workstation failed.
 
-![Ping failed Server to client](img/week1/pingFailServer.png)
+![Ping failed Server to client](/img/week1/pingFailServer.png)
 
 This was because of the Windows Defender Firewall blocking pings by default. To allow pinging, I temporarily enabled "ICMPv4 echo requests" using the following PowerShell command:
 
@@ -55,9 +55,9 @@ And then removed it with:
 
 <code>Remove-NetFirewallRule -DisplayName "Allow pings"</code>
 
-![Image showing me pinging the server from my client PC](img/week1/pingingServerFromClient.png)
+![Image showing me pinging the server from my client PC](/img/week1/pingingServerFromClient.png)
 
-![Image showing me pinging the client PC from the server](img/week1/pingingClientFromServer.png)
+![Image showing me pinging the client PC from the server](/img/week1/pingingClientFromServer.png)
 
 The IP address was made static using 'sudo nmtui' and changing the ipv4 configuration to a manual connection, where i could insert the desired ip, gateway, DNS provider.
 
@@ -66,7 +66,7 @@ Although the coursework brief references VirtualBox network settings, in my case
 ### Document System Specifications
 All commands have been run over ssh from my client machine to the server using the command line:
 
-![Running uname -a on the server over ssh](img/week1/unameServer.png)
-![Running free -h on the server over ssh](img/week1/freeServer.png)
-![Running df -h on the server over ssh](img/week1/dfServer.png)
-![Running lsb_release -a on the server over ssh](img/week1/lsb_releaseServer.png)
+![Running uname -a on the server over ssh](/img/week1/unameServer.png)
+![Running free -h on the server over ssh](/img/week1/freeServer.png)
+![Running df -h on the server over ssh](/img/week1/dfServer.png)
+![Running lsb_release -a on the server over ssh](/img/week1/lsb_releaseServer.png)
