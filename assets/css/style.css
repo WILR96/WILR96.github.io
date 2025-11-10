@@ -2,6 +2,11 @@
 ---
 
 @import "{{ site.theme }}";
-body {
- background: #5e5e5e
+section {
+  padding:15px 20px;
+  font-size:15px;
+  border-top:1px solid #fff;
+  background:linear-gradient(#9e9d9d, #9e9d9d);
+  border-radius:0 0 8px 8px;
+  position:relative
 }
