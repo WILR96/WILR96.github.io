@@ -1,7 +1,7 @@
 ---
 ---
 
-@import "pages-themes/minimal";
+@import "{{ site.theme }}";
 section {
   padding:15px 20px;
   font-size:15px;
