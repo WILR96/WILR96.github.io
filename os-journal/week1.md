@@ -1,6 +1,6 @@
 # Week 1 - System Planning and Distribution Selection 
 
-### System Architecture Diagram
+## System Architecture Diagram
 This is the system architecture diagram for my chosen client-server relationship:
 ![System Architecture Diagram](/os-journal/img/week1/SystemArcDiagram.svg)
 
