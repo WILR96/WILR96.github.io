@@ -33,10 +33,36 @@ I will test the server under no application load to get a baseline, then use var
 
 After collecting all the data, I will analyse the results to see any performance bottlenecks, focusing on CPU load, memory usage, I/O performance, and thermal behaviour.
 
-
-
-
-
 ### Security Configuration Checklist 
 
+| Area | How | Why |
+|------|--------------|----------------|
+| SSH Hardening | Turn off password login, only allow SSH keys | Stops anyone guessing passwords to get in |
+| User Accounts | Make separate admin and normal user accounts | Keeps privileges limited, follows “least privilege” |
+| Root Login | Disable direct root login | Reduces risk if someone tries to hack the root account |
+| SSH Port | Change the SSH port to something other than 22 | Avoids random automated scans hitting default SSH port |
+| Intrusion Protection | Install Fail2Ban | Blocks repeated login attempts automatically |
+| Firewall | Turn on UFW, block everything except SSH | Limits who can even talk to the server |
+| Mandatory Access Control | Enable AppArmor | Makes sure programs only do what they’re supposed to |
+| Updates | Turn on automatic security updates | Keeps the server patched without me thinking about it |
+| Privilege Management | Restrict sudo usage | Stops users from accidentally or intentionally gaining root |
+| Scheduled Tasks | Check cron jobs and fix permissions | Prevents unwanted scripts from running |
+| Logging | Make sure logs exist and rotate them | Helps me spot issues and avoids logs filling up storage |
+| Service Management | Turn off services I don’t need | Reduces potential attack points |
+
+
 ### Threat Model
+Brute-force SSH attacks
+Threat:
+Impact:
+Mitigation:
+
+Unauthorized local privilege escalation
+Threat:
+Impact:
+Mitigation:
+
+man-in-the-middle
+Threat:
+Impact:
+Mitigation:
