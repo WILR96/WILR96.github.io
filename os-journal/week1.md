@@ -3,20 +3,21 @@
 ## System Architecture Diagram
 This is the system architecture diagram for my chosen client-server relationship:
 ![System Architecture Diagram](/os-journal/img/week1/SystemArcDiagram.svg)
+The architecture diagram shows a remote administration model. The workstation connects to the server over SSH, allowing secure headless management and enforcing command line proficiency.
 
 ### Distribution Selection Justification
 
-For my server distribution, I selected Raspberry Pi OS Lite (64bit) to run on a Raspberry Pi 4 due to the operating system being specifically optimised for Raspberry Pi hardware, as such, it provides the best environment to test on. It also has large community support, documentation, and maintenance by the Raspberry Pi Foundation, meaning that this distro has long-term stability and compatibility.
+For my server distribution, I selected Raspberry Pi OS Lite (64bit) to run on a Raspberry Pi 4 due to the operating system being specifically optimised for Raspberry Pi hardware, as such, it provides the best environment to test on. It also has large community support as well as extensive documentation, and maintenance by the Raspberry Pi Foundation, meaning that this distro has long-term stability and compatibility.
 
-I considered two main alternatives:
-##### Ubuntu Server (ARM) 
-Ubuntu offers modern features, a large support community, and official ARM builds. However, it is more resource-intensive than Raspberry Pi OS Lite, which could impact performance.
-##### Fedora Server (ARM): 
-Fedora includes a newer kernel and SELinux enabled by default which offers advanced security features. However, its shorter release cycle and smaller Raspberry Pi community make it less suitable for long-term stability and support.
+I considered three different operating systems:
+| Distro | Strengths | Weaknesses |
+|------|--------------|----------------|
+| Raspberry Pi OS Lite | Optimised for Pi, Lightweight | Fewer enterprise features |
+| Ubuntu Server ARM | Large community, Modern features | More resource-intensive |
+| Fedora ARM | SELinux on by default, Newer kernel | Smaller Pi community, Shorter release cycle/support|
 
 **Conclusion**
-
-Raspberry Pi OS Lite provides the best balance between performance, simplicity, and official hardware support. Its Debian foundation ensures reliability and access to a large repository of packages as well as being optimised to run on a Raspberry Pi.
+Raspberry Pi OS Lite provides the best balance between performance, simplicity, and official hardware support. Its Debian foundation ensures reliability and access to a large repository of packages, as well as being optimised to run on a Raspberry Pi makes it the best choice for this project.
 
 
 ### Workstation Configuration Decision
@@ -62,14 +63,20 @@ Remove-NetFirewallRule -DisplayName "Allow pings"
 
 ![Image showing me pinging the client PC from the server](/os-journal/img/week1/pingingClientFromServer.png)
 
-The IP address was made static using 'sudo nmtui' and changing the ipv4 configuration to a manual connection, where i could insert the desired ip, gateway, DNS provider.
+The IP address was made static using 'sudo nmtui' and changing the ipv4 configuration to a manual connection, where i could insert the desired ip, gateway, DNS provider. A static IP ensures consistent SSH access without needing to rediscover the device.
 
 Although the coursework brief references VirtualBox network settings, in my case the system is deployed on physical hardware rather than a virtual machine. The equivalent network configuration principles still apply, like static IP addressing, gateway definition, and SSH access from the workstation.
 
 ### Document System Specifications
 All commands have been run over ssh from my client machine to the server using the command line:
 
+Running uname -a on the server over SSH, this shows the kernel version and system architecture.
 ![Running uname -a on the server over ssh](/os-journal/img/week1/unameServer.png)
+Running free -h on the server over ssh, this shows total, used, and available RAM.
 ![Running free -h on the server over ssh](/os-journal/img/week1/freeServer.png)
+Running df -h on the server over ssh. This shows the available and used storage across mounted filesystems.
 ![Running df -h on the server over ssh](/os-journal/img/week1/dfServer.png)
+Running lsb_release -a on the server over ssh. This outputs the distribution name and release information.
 ![Running lsb_release -a on the server over ssh](/os-journal/img/week1/lsb_releaseServer.png)
+
+This week helped me understand that even something as basic as ping relies on security policies. I thought that there was a problem with the connection or a routing problem, but it was just a firewall filter on my windows machine. This helped my reinforce the need for good troubleshooting steps rather than making assumptions about the cause of a problem.
