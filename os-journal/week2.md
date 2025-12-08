@@ -3,7 +3,9 @@
 ## Performance Testing Plan
 The goal of this week is to design a security baseline and performance testing methodology, I will outline how i will monitor the server remotely to understand the effect of diffrent workloads.
 
-All testing will be done from the client (Windows Machine) over SSH to the server (Raspberry PI). I plan to make a script to automate collecting CPU, memory, disk, network and temperature readings into a human readable format that can be read from the windows client without having to run each command individually, as this will ensure consistency. This script will be ran over SSH in the terminal and timestamped for logging and will be copied back to the client machine for analysis. I will use it to measure how the server handles different applications, as well as to see how I can learn to troubleshoot any bottlenecks or performance hurdles. 
+All testing will be done from the client (Windows Machine) over SSH to the server (Raspberry PI). I plan to make a script to automate collecting CPU, memory, disk, network and temperature readings into a human readable format that can be read from the windows client without having to run each command individually as this will avoid human error and consistency . 
+
+This script will be ran over SSH in the terminal and timestamped for logging and will be copied back to the client machine for analysis. I will use it to measure how the server handles different applications, as well as to see how I can learn to troubleshoot any bottlenecks or performance hurdles. 
 
 I will test the server under no application load to get a baseline, then use various applications in order to simulate real activity. I will also use the Linux task scheduler (cron) in order to run continuous logging to see how the performance changes over time.
 
@@ -60,11 +62,11 @@ Tests basic network connectivity and latency between devices, helping to detect 
 Displays network interface statistics such as transmitted and received packets, errors, and drops.
 
 ### **System Temperatures**
-**vcgenmd measure_temp:**
+**vcgencmd measure_temp:**
 
 Check to see if the device is overheating or running too hot.
 
-**vcgenmd get_throttled:**
+**vcgencmd get_throttled:**
 
 Check to see if it has been throttled due to power or temperature
 
@@ -93,6 +95,8 @@ Check to see if it has been throttled due to power or temperature
 ### Threat Model
 | Threat | Impact | Mitigation |
 |------|--------------|----------------|
-|Brute-force SSH attacks| Could allow unauthorized access if passwords are weak | Disable password login, install Fail2Ban |
-|Unauthorized local privilege escalation| Could allow users to read sensitive information or take over the server | restrict sudo, enable AppArmor, audit running services and cronjobs|
-|man-in-the-middle| intercept sensitive data | Use SSH keys, avoid unsecured networks, enforce firewall restrictions |
+| Brute-force SSH attacks | Could allow unauthorized access if passwords are weak | Disable password login, install Fail2Ban |
+| Unauthorized local privilege escalation | Could allow users to read sensitive information or take over the server | restrict sudo, enable AppArmor, audit running services and cronjobs |
+| man-in-the-middle | intercept sensitive data | Use SSH keys, avoid unsecured networks, enforce firewall restrictions |
+| Installing unknown packages or scripts | Could introduce malware or backdoors | Only install from trusted repositories, review scripts before execution |
+
