@@ -3,7 +3,7 @@
 ## Performance Testing Plan
 The goal of this week is to design a security baseline and performance testing methodology, I will outline how i will monitor the server remotely to understand the effect of diffrent workloads.
 
-All testing will be done from the client (Windows Machine) over SSH to the server (Raspberry PI). I plan to make a script to automate collecting CPU, memory, disk, network and temperature readings into a human readable format that can be read from the windows client without having to run each command individually as this will avoid human error and consistency . 
+All testing will be done from the client (Windows Machine) over SSH to the server (Raspberry PI). I plan to make a script to automate collecting CPU, memory, disk, network and temperature readings into a human readable format that can be read from the windows client without having to run each command individually as this will avoid human error and ensure consistency . 
 
 This script will be ran over SSH in the terminal and timestamped for logging and will be copied back to the client machine for analysis. I will use it to measure how the server handles different applications, as well as to see how I can learn to troubleshoot any bottlenecks or performance hurdles. 
 
