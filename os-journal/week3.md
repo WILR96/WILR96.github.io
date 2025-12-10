@@ -45,7 +45,7 @@ We then need to get an account key, in order to get the key we will need to regi
 
 When we want to run the application, we can attach to a project such as BOINC Central and let them use the Pi's resources using:
 ```bash
-sudo boinccmd --project_attach http://boinc.berkeley.edu/ MYACCKEY
+sudo boinccmd --project_attach https://boinc.berkeley.edu/central/ MYACCKEY
 ```
 ![attach](/os-journal/img/week3/attachtoproject.png)
 
