@@ -22,15 +22,29 @@ cat ~/.ssh/PUBLICKEY | ssh user@IPADDR "cat >> ~/.ssh/authorized_keys"
 ![keytransfer](/os-journal/img/week4/keytransfer.png)
 
 We will also need to make sure that the permissions are correct for the file, so we set the permissions to 600, this gives the owner of the file read and write access, and no-one else.
+```bash
+chmod 600 authorised_keys
+```
 
 ![chmodauthkey](/os-journal/img/week4/chmodAuthKeys.png)
 
 After this, we can test to see if we still get prompted with a password:
 ![sshnopass](/os-journal/img/week4/sshnopass.png)
 
-Success! Now we can set up the firewall to only allow my client machine.
+Success! We can now disable password authentication by editing the sshd_config:
+```bash
+sudo nano /etc/ssh/sshd_config
+```
+
+![passwdrmv](/os-journal/img/week4/sshd_configChange.png)
+
+And proof of it working:
+![passwdsshno](/os-journal/img/week4/sshnopassroot.png)
+
+Now we can set up the firewall to only allow my client machine.
 
 ### Configure a firewall permitting SSH from one specific workstation only
+
 
 
 
