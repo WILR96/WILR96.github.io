@@ -9,7 +9,7 @@ In this week, we will be selecting various applications in order to evaluate how
 | RAM-intensive | Memcached | Stores all data in memory / performance scales directly with RAM |
 | Disk I/O-intensive | SQlite | Database engine, can generate frequent disk reads and writes. |
 | Network-intensive | iperf3 | Industry standard tool for testing network connections  |
-| Server Workload | Minetest Server | Voxel game server with CPU-intensive worldgen, RAM caching, disk writes, and real-time networking. |
+| Server Workload | Luanti Server | Voxel game server with CPU-intensive worldgen, RAM caching, disk writes, and real-time networking. |
 
 ### Installation Documentation with exact commands for SSH-based installation
 Before anything, we will update the repos using 
@@ -55,6 +55,7 @@ memcached -V
 #### SQlite:
 Installation guide:
 https://packages.debian.org/search?keywords=sqlite3
+
 sqlite can be installed using:
 ```bash
 sudo apt install sqlite3
@@ -69,11 +70,35 @@ sqlite3 -version
 
 #### iperf3:
 Installation guide:
+https://iperf.fr/iperf-download.php
 
-#### Minetest Server:
+iperf3 can be installed using:
+```bash
+sudo apt-get install iperf3
+```
+![iperf3install](/os-journal/img/week3/iperf3install.png)
+
+We can test that the application has been installed using:
+```bash
+iperf3 -v
+```
+![iperf3](/os-journal/img/week3/iperf3.png)
+
+#### Luanti Server:
 Installation guide:
+https://docs.luanti.org/for-server-hosts/setup/
 
+luantiserver can be installed using:
+```bash
+sudo apt install luanti-server
+```
+![luanti](/os-journal/img/week3/luantiinstall.png)
 
+We can test that the application has been installed using:
+```bash
+sudo ./luantiserver --version
+```
+![luantiinstall](/os-journal/img/week3/luanti.png)
 ### Expected Resource Profiles 
 
 ### Monitoring Strategy
