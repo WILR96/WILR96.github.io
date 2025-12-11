@@ -1,5 +1,5 @@
 # Week 3
-In this week, we will be selecting various applications in order to evaluate how well the Raspberri Pi's performance is under different stress tests. The goal of these tests are to simulate realistic server senarios, so ive chosen open-source projects that are commonly used in real deployments. I've selected applications based on different workload categories: CPU, RAM, Disk I/O, Network and Server Application.
+In this week, we will be selecting various applications in order to evaluate how well the Raspberry Pi's performance is under different stress tests. The goal of these tests are to simulate realistic server scenarios, so ive chosen open-source projects that are commonly used in real deployments. I've selected applications based on different workload categories: CPU, RAM, Disk I/O, Network and Server Workload.
 
 ### Application Selection Matrix
 
@@ -9,7 +9,7 @@ In this week, we will be selecting various applications in order to evaluate how
 | RAM-intensive | Memcached | Stores all data in memory / performance scales directly with RAM |
 | Disk I/O-intensive | Nextcloud | Self-hosted cloud storage platform with constant filesystem reads/writes. |
 | Network-intensive | iperf3 | Industry standard tool for testing network connections  |
-| Server workload | Minetest Server | Voxel game server with CPU-intensive worldgen, RAM caching, disk writes, and real-time networking. |
+| Server Workload | Minetest Server | Voxel game server with CPU-intensive worldgen, RAM caching, disk writes, and real-time networking. |
 
 ### Installation Documentation with exact commands for SSH-based installation
 Before anything, we will update the repos using 
