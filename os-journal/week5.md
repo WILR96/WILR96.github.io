@@ -48,7 +48,7 @@ so the changes could take effect.
 I then verified that AppArmor was active by running:
 
 ```bash
-sudo aa-status
+sudo apparmor_status
 ```
 
 
@@ -76,6 +76,46 @@ I verified the status again and saw that the profiles had been enabled and acces
 ![aafinal](/os-journal/img/week5/aafinal.png)
 
 ### Configure automatic security updates with evidence of implementation
+
+On Debian 13, the recommended tool for automatic security updates is unattended-upgrades. This service automatically checks for security patches and installs them without user intervention, we can install it using: 
+
+```bash
+sudo apt install unattended-upgrades
+```
+
+![upgrades](/os-journal/img/week5/upgrades.png)
+
+Once installed, I enabled automatic security updates using the Debian configuration helper:
+
+```bash
+sudo dpkg-reconfigure unattended-upgrades
+```
+
+I then checked that the unattended-upgrades services and timers were active by running:
+
+```bash
+systemctl status unattended-upgrades
+systemctl status apt-daily.timer
+systemctl status apt-daily-upgrade.timer
+```
+![uu](/os-journal/img/week5/uu.png)
+
+
+To test that the service was working correctly, I performed a simulated upgrade using:
+```bash
+sudo unattended-upgrade --dry-run --debug
+```
+
+![dry run](/os-journal/img/week5/dryrun.png)
+
+This command outputs detailed debug information showing which packages would be upgraded if updates were available.
+
+Finally, I checked the unattended-upgrades log file to confirm the service had already performed routine update checks:
+
+```bash
+cat /var/log/unattended-upgrades/unattended-upgrades.log
+```
+
 
 ### Configure fail2ban for enhanced intrusion detection
 
