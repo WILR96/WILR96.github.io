@@ -161,9 +161,9 @@ enabled = true
 port = ssh
 filter = sshd
 logpath = /var/log/auth.log
-maxretry = 5
-bantime = 10m
-findtime = 10m
+maxretry = 3
+bantime = 60m
+findtime = 60m
 ```
 
 ![jailedit](/os-journal/img/week5/jailedit.png)
