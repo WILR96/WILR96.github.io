@@ -204,7 +204,7 @@ The script that i've made checks SSH, UFW, users, AppArmor, Fail2Ban, and automa
 
 Every line of code has been commented for clarity.
 
-You can view the security baseline verification script here: [os-journal/scripts/security-baseline.sh](scripts/security-baseline.sh)
+You can view the security baseline verification script here: [security-baseline.sh](scripts/security-baseline.sh)
 
 I transfered the script to the server using:
 ```powershell
