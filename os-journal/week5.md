@@ -234,6 +234,7 @@ The script is ran like so:
 ```powershell
 ./monitor-server.ps1
 ```
-
+Here is the output:
+![Monitor script output](img/week5/monitorOut.png)
 
 

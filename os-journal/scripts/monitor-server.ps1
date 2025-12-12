@@ -2,7 +2,7 @@
 $Server = "192.168.1.64" # the servers local ip
 $User = "reece" # the user for ssh 
 
-Write-Host "Connecting to $User@$Server and collecting performance metrics..." -ForegroundColor Cyan
+Write-Host "$User@$Server performance metrics:" -ForegroundColor Cyan
 Write-Host ""
 
 # Define the commands to run on the server in a variable
