@@ -31,14 +31,17 @@ I opened the file using:
 sudo nano /boot/firmware/cmdline.txt
 ```
 
+![cmdline1](/os-journal/img/week5/cmdline1.png)
+
 and made the nessesary changes, ensuring that the changes i make are on the same line as the rest of the text otherwise this will break the file.
+
+![cmdline2](/os-journal/img/week5/cmdline2.png)
 
 then rebooted the system using 
 
 ```bash
 sudo reboot 
 ```
-
 
 so the changes could take effect.
 
@@ -50,6 +53,8 @@ sudo aa-status
 
 
 This showed that AppAmor was running correctly, and the filesystem was mounted. 
+
+![aasetup](/os-journal/img/week5/aasetup.png)
 
 By default, AppArmor only includes a minimal set of profiles. To expand coverage to more common applications, I installed the recommended profiles using:
 
@@ -68,6 +73,7 @@ which selects all files inside apparmor.d and puts them into enforce mode.
 
 I verified the status again and saw that the profiles had been enabled and access control restrictions were applied to all programs with profiles.
 
+![aafinal](/os-journal/img/week5/aafinal.png)
 
 ### Configure automatic security updates with evidence of implementation
 
