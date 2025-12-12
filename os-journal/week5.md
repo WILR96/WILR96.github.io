@@ -200,7 +200,22 @@ Because my firewall currently whitelists only a single trusted IP, external devi
 
 ### Create a security baseline verification script (`security-baseline.sh`) that runs on the server (executed via SSH) and verifies all security configurations from Phases 4 and 5
 
+The script that i've made checks SSH, UFW, users, AppArmor, Fail2Ban, and automatic security updates, highlighting issues in red and healthy configurations in green.
+
+Every line of code has been commented.
+
 You can view the security baseline verification script here: [os-journal/scripts/security-baseline.sh](scripts/security-baseline.sh)
+
+I transfered the script to the server using:
+'''powershell
+scp -s "path\to\script" user@ipaddr:/path/to/destination
+'''
+
+then made it executable using:
+'''bash
+chmod +x security-baseline.sh
+'''
+
 
 
 ### Create a remote monitoring script (`monitor-server.sh`) that runs on your workstation, connects via SSH, and collects performance metrics from the server.
