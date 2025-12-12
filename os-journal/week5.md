@@ -207,14 +207,14 @@ Every line of code has been commented.
 You can view the security baseline verification script here: [os-journal/scripts/security-baseline.sh](scripts/security-baseline.sh)
 
 I transfered the script to the server using:
-'''powershell
+```powershell
 scp -s "path\to\script" user@ipaddr:/path/to/destination
-'''
+```
 
 then made it executable using:
-'''bash
+```bash
 chmod +x security-baseline.sh
-'''
+```
 
 
 
