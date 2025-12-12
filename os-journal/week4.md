@@ -35,8 +35,14 @@ Success! We can now disable password authentication by editing the sshd_config:
 ```bash
 sudo nano /etc/ssh/sshd_config
 ```
+Before:
 
 ![passwdrmv](/os-journal/img/week4/sshd_configChange.png)
+
+After:
+
+![passwdrmvcng](/os-journal/img/week4/sshd_configChangeafter.png)
+
 
 And proof of it working:
 ![passwdsshno](/os-journal/img/week4/sshnopassroot.png)
@@ -45,16 +51,47 @@ Now we can set up the firewall to only allow my client machine.
 
 ### Configure a firewall permitting SSH from one specific workstation only
 
+In order to only allow my client pc to access the server, I will need to install a firewall application. The most common is called UFW (Uncomplicated Firewall).
+
+To install UFW:
+```bash
+sudo apt install ufw
+```
+![installUFW](/os-journal/img/week4/installUFW.png)
+
+After, we will need to configure the firewall to block all incoming connections and allow outgoing connections.
+![inoutUFW](/os-journal/img/week4/inoutUFW.png)
+
+Then we will add my client PC IP address to the allow list, whilst specifying port 22 as this is the port that ssh is currently hosted on. 
+![ipUFW](/os-journal/img/week4/ipUFW.png)
+
+Then we can enable the service, and check that the rules have been added correctly:
+![finalRules](/os-journal/img/week4/finalRules.png)
 
 
 
 ### Manage users and implement privilege management, creating a non-root administrative user.
 
-### SSH Access Evidence showing successful connection screenshots
+First off, we will look at what users we have on our system. We can do this by using the passwd file.
 
-### Configuration Files with before and after comparisons
+```bash
+cat /etc/passwd
+```
 
-### Firewall Documentation showing complete ruleset
+This will give us a list of all the users on the server. There are a few that are system users such as daemon, but also users like root and reece that have login information:
+![users](/os-journal/img/week4/users.png)
 
-### Remote Administration Evidence demonstrating commands executed via SSH
+We can also see who belongs to the sudo group using:
+```bash
+getent group sudo
+```
+![rsudo](/os-journal/img/week4/reecesudo.png)
+
+Which tells me that the "reece" user is already a member of the sudo group, which means we have already implemented a non-root admin user.
+
+If we wanted to create another one, we can use these commands to create a user and add it to the sudo group:
+```bash
+sudo adduser USERTOADD
+sudo usermod -aG sudo USERTOADD
+```
 
