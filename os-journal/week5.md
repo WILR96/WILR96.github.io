@@ -15,7 +15,7 @@ As the distro im using (Debian 13) comes with AppArmor, I will check to see the 
 
 This comes back with a message stating that the apparmor module is loaded, but the filesystem is not mounted.
 
-![aanotload](/os-journal/img/week5/aafsnotloaded)
+![aanotload](/os-journal/img/week5/aafsnotload.png)
 
  According to the AppArmor documentation, Debian systems require these two kernel parameters to enable full AppArmor support: 
 
