@@ -119,6 +119,85 @@ cat /var/log/unattended-upgrades/unattended-upgrades.log
 
 ### Configure fail2ban for enhanced intrusion detection
 
+Fail2Ban is a log-monitoring intrusion prevention tool. It watches system logs for repeated authentication failures and automatically blocks suspicious IP addresses using firewall rules.
+
+To begin, I installed Fail2Ban using:
+
+```bash
+sudo apt install fail2ban
+```
+
+After installation, I checked the service status to ensure it was running:
+
+```bash
+sudo systemctl status fail2ban
+```
+
+![f2b](/os-journal/img/week5/f2b.png)
+
+Fail2Ban ships with a default configuration file located at:
+
+```bash
+/etc/fail2ban/jail.conf
+```
+![jail](/os-journal/img/week5/jail.png)
+
+However, modifying this file directly is not recommended as stated in the top of the jail.conf file. Instead, Fail2Ban encourages the use of override files such as:
+
+```bash
+/etc/fail2ban/jail.d/
+```
+
+I created my own configuration file to enable protection for SSH:
+
+```bash
+sudo nano /etc/fail2ban/jail.d/ssh.local
+```
+
+Inside this file, I added the following configuration:
+```bash
+[sshd]
+enabled = true
+port = ssh
+filter = sshd
+logpath = /var/log/auth.log
+maxretry = 5
+bantime = 10m
+findtime = 10m
+```
+
+![jailedit](/os-journal/img/week5/jailedit.png)
+
+This enables the SSH jail, sets the maximum allowed failed login attempts to 5, and bans offending IPs for 10 minutes.
+
+I then restarted the service to apply the changes:
+
+```bash
+sudo systemctl restart fail2ban
+```
+
+To verify that the SSH jail was enabled, I ran:
+
+```bash
+sudo fail2ban-client status
+```
+
+![jailstatus](/os-journal/img/week5/jailstatus.png)
+
+And to get detailed information about the SSH jail specifically:
+
+```bash
+sudo fail2ban-client status sshd
+```
+
+![jailstatusssh](/os-journal/img/week5/jailstatusssh.png)
+
+This confirmed that the jail was active and watching the correct log file.
+
+Because my firewall currently whitelists only a single trusted IP, external devices cannot reach SSH at all. This means Fail2Ban cannot observe login attempts from the rest of the network. However, Fail2Ban still runs correctly in the background and monitors the logs.
+
+
+
 ### Create a security baseline verification script (`security-baseline.sh`) that runs on the server (executed via SSH) and verifies all security configurations from Phases 4 and 5
 
 ### Create a remote monitoring script (`monitor-server.sh`) that runs on your workstation, connects via SSH, and collects performance metrics from the server.
