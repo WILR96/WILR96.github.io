@@ -227,7 +227,7 @@ The monitor-server.ps1 script is a powershell script that connects to the server
 
 Every line of code has been commented for clarity.
 
-You can view the remote monitoring script here: [os-journal/scripts/security-baseline.ps1] (/scripts/monitor-server.ps1)
+You can view the remote monitoring script here: [monitor-server.ps1](scripts/monitor-server.ps1)
 
 The script is ran like so:
 
