@@ -216,6 +216,8 @@ then made it executable using:
 chmod +x security-baseline.sh
 ```
 
+Here is the expected output:
+![Output of Security baseline script](img/week5/baselineOut.png)
 
 
 ### Create a remote monitoring script (`monitor-server.sh`) that runs on your workstation, connects via SSH, and collects performance metrics from the server.
