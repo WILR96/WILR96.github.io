@@ -202,7 +202,7 @@ Because my firewall currently whitelists only a single trusted IP, external devi
 
 The script that i've made checks SSH, UFW, users, AppArmor, Fail2Ban, and automatic security updates, highlighting issues in red and healthy configurations in green.
 
-Every line of code has been commented.
+Every line of code has been commented for clarity.
 
 You can view the security baseline verification script here: [os-journal/scripts/security-baseline.sh](scripts/security-baseline.sh)
 
@@ -217,8 +217,23 @@ chmod +x security-baseline.sh
 ```
 
 Here is the expected output:
+
 ![Output of Security baseline script](img/week5/baselineOut.png)
 
 
 ### Create a remote monitoring script (`monitor-server.sh`) that runs on your workstation, connects via SSH, and collects performance metrics from the server.
+
+The monitor-server.ps1 script is a powershell script that connects to the server via SSH and collects performance metrics such as CPU usage, memory usage, disk space, running processes, and network statistics. It lets me quickly check the health of the server from my client pc.
+
+Every line of code has been commented for clarity.
+
+You can view the remote monitoring script here: [os-journal/scripts/security-baseline.ps1] (/scripts/monitor-server.ps1)
+
+The script is ran like so:
+
+```powershell
+./monitor-server.ps1
+```
+
+
 
