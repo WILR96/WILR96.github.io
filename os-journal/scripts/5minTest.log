@@ -1,0 +1,445 @@
+Iteration 1
+No process supplied - running normal system scan
+ [0;34m Performance Metrics [0m 
+
+[0;34m------ CPU Usage and Load ------[0m
+--top--
+top - 21:29:22 up  9:31,  2 users,  load average: 0.15, 0.17, 0.10
+Tasks: 171 total,   1 running, 169 sleeping,   1 stopped,   0 zombie
+%Cpu(s):  2.1 us,  2.1 sy,  0.0 ni, 95.8 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem :   7820.7 total,   7058.5 free,    306.9 used,    556.0 buff/cache     
+MiB Swap:   2048.0 total,   2048.0 free,      0.0 used.   7513.9 avail Mem 
+
+--mpstat--
+Linux 6.12.47+rpt-rpi-v8 (headlesspi) 	14/12/25 	_aarch64_	(4 CPU)
+
+21:29:22     CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+21:29:22     all    0.15    0.00    0.18    1.02    0.00    0.01    0.00    0.00    0.00   98.64
+
+[0;34m------ RAM and Swap ------[0m
+--free--
+               total        used        free      shared  buff/cache   available
+Mem:           7.6Gi       306Mi       6.9Gi       9.3Mi       555Mi       7.3Gi
+Swap:          2.0Gi          0B       2.0Gi
+
+--vmstat--
+procs -----------memory---------- ---swap-- -----io---- -system-- -------cpu-------
+ r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st gu
+ 2  0      0 7227604  64968 504368    0    0    12   503  244    0  0  0 99  1  0  0
+
+[0;34m------Storage / IO speeds------[0m
+--df--
+Filesystem      Size  Used Avail Use% Mounted on
+udev            3.6G     0  3.6G   0% /dev
+tmpfs           1.6G  9.3M  1.6G   1% /run
+/dev/mmcblk0p2  114G  4.6G  105G   5% /
+tmpfs           3.9G     0  3.9G   0% /dev/shm
+tmpfs           5.0M   16K  5.0M   1% /run/lock
+tmpfs           1.0M     0  1.0M   0% /run/credentials/systemd-journald.service
+tmpfs           3.9G     0  3.9G   0% /tmp
+/dev/mmcblk0p1  510M   66M  445M  13% /boot/firmware
+tmpfs           1.0M     0  1.0M   0% /run/credentials/getty@tty1.service
+tmpfs           783M   12K  783M   1% /run/user/1000
+
+--iotop--
+Total DISK READ:         0.00 B/s | Total DISK WRITE:         0.00 B/s
+Current DISK READ:       0.00 B/s | Current DISK WRITE:       0.00 B/s
+Total DISK READ:         0.00 B/s | Total DISK WRITE:         7.84 K/s
+Current DISK READ:       0.00 B/s | Current DISK WRITE:      47.06 K/s
+Total DISK READ:         0.00 B/s | Total DISK WRITE:         0.00 B/s
+Current DISK READ:       0.00 B/s | Current DISK WRITE:       0.00 B/s
+
+--R/W Speeds--
+--Write--
+128+0 records in
+128+0 records out
+134217728 bytes (134 MB, 128 MiB) copied, 9.88734 s, 13.6 MB/s
+--Read--
+128+0 records in
+128+0 records out
+134217728 bytes (134 MB, 128 MiB) copied, 0.111455 s, 1.2 GB/s
+
+[0;34m------ Network ------[0m
+Netid State  Recv-Q Send-Q               Local Address:Port  Peer Address:Port Process
+udp   UNCONN 0      0                          0.0.0.0:51772      0.0.0.0:*           
+udp   UNCONN 0      0                          0.0.0.0:5353       0.0.0.0:*           
+udp   UNCONN 0      0                                *:44165            *:*           
+udp   UNCONN 0      0      [fe80::1dc7:ff5e:6f64:5220]:546              *:*           
+udp   UNCONN 0      0                                *:5353             *:*           
+udp   UNCONN 0      0                                *:30000            *:*           
+tcp   LISTEN 0      200                      127.0.0.1:30000      0.0.0.0:*           
+tcp   LISTEN 0      1024                     127.0.0.1:11211      0.0.0.0:*           
+tcp   LISTEN 0      128                        0.0.0.0:22         0.0.0.0:*           
+tcp   ESTAB  0      68                    192.168.1.64:22    192.168.1.94:49507       
+tcp   LISTEN 0      1024                         [::1]:11211         [::]:*           
+tcp   LISTEN 0      128                           [::]:22            [::]:*           
+
+Kernel Interface table
+Iface             MTU    RX-OK RX-ERR RX-DRP RX-OVR    TX-OK TX-ERR TX-DRP TX-OVR Flg
+eth0             1500        0      0      0 0             0      0      0      0 BMU
+lo              65536       97      0      0 0            97      0      0      0 LRU
+wlan0            1500    84370      0     10 0         43019      0      0      0 BMRU
+
+[0;34m------ System ------[0m
+-- Temperature --
+temp=39.4'C
+-- Throttled Status --
+throttled=0x0
+
+ [0;32mMetrics collection complete [0m
+Iteration 2
+No process supplied - running normal system scan
+ [0;34m Performance Metrics [0m 
+
+[0;34m------ CPU Usage and Load ------[0m
+--top--
+top - 21:30:36 up  9:32,  2 users,  load average: 0.14, 0.19, 0.11
+Tasks: 172 total,   1 running, 170 sleeping,   1 stopped,   0 zombie
+%Cpu(s):  4.0 us,  2.0 sy,  0.0 ni, 94.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem :   7820.7 total,   7061.3 free,    304.0 used,    556.0 buff/cache     
+MiB Swap:   2048.0 total,   2048.0 free,      0.0 used.   7516.8 avail Mem 
+
+--mpstat--
+Linux 6.12.47+rpt-rpi-v8 (headlesspi) 	14/12/25 	_aarch64_	(4 CPU)
+
+21:30:36     CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+21:30:36     all    0.15    0.00    0.18    1.02    0.00    0.01    0.00    0.00    0.00   98.63
+
+[0;34m------ RAM and Swap ------[0m
+--free--
+               total        used        free      shared  buff/cache   available
+Mem:           7.6Gi       304Mi       6.9Gi       9.3Mi       556Mi       7.3Gi
+Swap:          2.0Gi          0B       2.0Gi
+
+--vmstat--
+procs -----------memory---------- ---swap-- -----io---- -system-- -------cpu-------
+ r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st gu
+ 1  0      0 7230716  64988 504372    0    0    12   506  244    0  0  0 99  1  0  0
+
+[0;34m------Storage / IO speeds------[0m
+--df--
+Filesystem      Size  Used Avail Use% Mounted on
+udev            3.6G     0  3.6G   0% /dev
+tmpfs           1.6G  9.3M  1.6G   1% /run
+/dev/mmcblk0p2  114G  4.6G  105G   5% /
+tmpfs           3.9G     0  3.9G   0% /dev/shm
+tmpfs           5.0M   16K  5.0M   1% /run/lock
+tmpfs           1.0M     0  1.0M   0% /run/credentials/systemd-journald.service
+tmpfs           3.9G     0  3.9G   0% /tmp
+/dev/mmcblk0p1  510M   66M  445M  13% /boot/firmware
+tmpfs           1.0M     0  1.0M   0% /run/credentials/getty@tty1.service
+tmpfs           783M   12K  783M   1% /run/user/1000
+
+--iotop--
+Total DISK READ:         0.00 B/s | Total DISK WRITE:         0.00 B/s
+Current DISK READ:       0.00 B/s | Current DISK WRITE:       0.00 B/s
+Total DISK READ:         0.00 B/s | Total DISK WRITE:        19.60 K/s
+Current DISK READ:       0.00 B/s | Current DISK WRITE:      58.79 K/s
+Total DISK READ:         0.00 B/s | Total DISK WRITE:         0.00 B/s
+Current DISK READ:       0.00 B/s | Current DISK WRITE:       0.00 B/s
+
+--R/W Speeds--
+--Write--
+128+0 records in
+128+0 records out
+134217728 bytes (134 MB, 128 MiB) copied, 7.28207 s, 18.4 MB/s
+--Read--
+128+0 records in
+128+0 records out
+134217728 bytes (134 MB, 128 MiB) copied, 0.117616 s, 1.1 GB/s
+
+[0;34m------ Network ------[0m
+Netid State  Recv-Q Send-Q               Local Address:Port  Peer Address:Port Process
+udp   UNCONN 0      0                          0.0.0.0:51772      0.0.0.0:*           
+udp   UNCONN 0      0                          0.0.0.0:5353       0.0.0.0:*           
+udp   UNCONN 0      0                                *:44165            *:*           
+udp   UNCONN 0      0      [fe80::1dc7:ff5e:6f64:5220]:546              *:*           
+udp   UNCONN 0      0                                *:5353             *:*           
+udp   UNCONN 0      0                                *:30000            *:*           
+tcp   LISTEN 0      200                      127.0.0.1:30000      0.0.0.0:*           
+tcp   LISTEN 0      1024                     127.0.0.1:11211      0.0.0.0:*           
+tcp   LISTEN 0      128                        0.0.0.0:22         0.0.0.0:*           
+tcp   ESTAB  0      0                     192.168.1.64:22    192.168.1.94:49606       
+tcp   LISTEN 0      1024                         [::1]:11211         [::]:*           
+tcp   LISTEN 0      128                           [::]:22            [::]:*           
+
+Kernel Interface table
+Iface             MTU    RX-OK RX-ERR RX-DRP RX-OVR    TX-OK TX-ERR TX-DRP TX-OVR Flg
+eth0             1500        0      0      0 0             0      0      0      0 BMU
+lo              65536       97      0      0 0            97      0      0      0 LRU
+wlan0            1500    84500      0     10 0         43094      0      0      0 BMRU
+
+[0;34m------ System ------[0m
+-- Temperature --
+temp=38.4'C
+-- Throttled Status --
+throttled=0x0
+
+ [0;32mMetrics collection complete [0m
+Iteration 3
+No process supplied - running normal system scan
+ [0;34m Performance Metrics [0m 
+
+[0;34m------ CPU Usage and Load ------[0m
+--top--
+top - 21:31:48 up  9:33,  2 users,  load average: 0.18, 0.21, 0.12
+Tasks: 172 total,   1 running, 170 sleeping,   1 stopped,   0 zombie
+%Cpu(s):  4.2 us,  2.1 sy,  0.0 ni, 93.8 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem :   7820.7 total,   7060.2 free,    305.1 used,    556.0 buff/cache     
+MiB Swap:   2048.0 total,   2048.0 free,      0.0 used.   7515.7 avail Mem 
+
+--mpstat--
+Linux 6.12.47+rpt-rpi-v8 (headlesspi) 	14/12/25 	_aarch64_	(4 CPU)
+
+21:31:48     CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+21:31:48     all    0.15    0.00    0.18    1.02    0.00    0.01    0.00    0.00    0.00   98.63
+
+[0;34m------ RAM and Swap ------[0m
+--free--
+               total        used        free      shared  buff/cache   available
+Mem:           7.6Gi       305Mi       6.9Gi       9.3Mi       555Mi       7.3Gi
+Swap:          2.0Gi          0B       2.0Gi
+
+--vmstat--
+procs -----------memory---------- ---swap-- -----io---- -system-- -------cpu-------
+ r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st gu
+ 1  0      0 7229520  65000 504336    0    0    12   509  244    0  0  0 99  1  0  0
+
+[0;34m------Storage / IO speeds------[0m
+--df--
+Filesystem      Size  Used Avail Use% Mounted on
+udev            3.6G     0  3.6G   0% /dev
+tmpfs           1.6G  9.3M  1.6G   1% /run
+/dev/mmcblk0p2  114G  4.6G  105G   5% /
+tmpfs           3.9G     0  3.9G   0% /dev/shm
+tmpfs           5.0M   16K  5.0M   1% /run/lock
+tmpfs           1.0M     0  1.0M   0% /run/credentials/systemd-journald.service
+tmpfs           3.9G     0  3.9G   0% /tmp
+/dev/mmcblk0p1  510M   66M  445M  13% /boot/firmware
+tmpfs           1.0M     0  1.0M   0% /run/credentials/getty@tty1.service
+tmpfs           783M   12K  783M   1% /run/user/1000
+
+--iotop--
+Total DISK READ:         0.00 B/s | Total DISK WRITE:         0.00 B/s
+Current DISK READ:       0.00 B/s | Current DISK WRITE:       0.00 B/s
+Total DISK READ:         0.00 B/s | Total DISK WRITE:         0.00 B/s
+Current DISK READ:       0.00 B/s | Current DISK WRITE:       0.00 B/s
+Total DISK READ:         0.00 B/s | Total DISK WRITE:         0.00 B/s
+Current DISK READ:       0.00 B/s | Current DISK WRITE:       0.00 B/s
+
+--R/W Speeds--
+--Write--
+128+0 records in
+128+0 records out
+134217728 bytes (134 MB, 128 MiB) copied, 11.156 s, 12.0 MB/s
+--Read--
+128+0 records in
+128+0 records out
+134217728 bytes (134 MB, 128 MiB) copied, 0.113512 s, 1.2 GB/s
+
+[0;34m------ Network ------[0m
+Netid State  Recv-Q Send-Q               Local Address:Port  Peer Address:Port Process
+udp   UNCONN 0      0                          0.0.0.0:51772      0.0.0.0:*           
+udp   UNCONN 0      0                          0.0.0.0:5353       0.0.0.0:*           
+udp   UNCONN 0      0                                *:44165            *:*           
+udp   UNCONN 0      0      [fe80::1dc7:ff5e:6f64:5220]:546              *:*           
+udp   UNCONN 0      0                                *:5353             *:*           
+udp   UNCONN 0      0                                *:30000            *:*           
+tcp   LISTEN 0      200                      127.0.0.1:30000      0.0.0.0:*           
+tcp   LISTEN 0      1024                     127.0.0.1:11211      0.0.0.0:*           
+tcp   LISTEN 0      128                        0.0.0.0:22         0.0.0.0:*           
+tcp   ESTAB  0      68                    192.168.1.64:22    192.168.1.94:49784       
+tcp   LISTEN 0      1024                         [::1]:11211         [::]:*           
+tcp   LISTEN 0      128                           [::]:22            [::]:*           
+
+Kernel Interface table
+Iface             MTU    RX-OK RX-ERR RX-DRP RX-OVR    TX-OK TX-ERR TX-DRP TX-OVR Flg
+eth0             1500        0      0      0 0             0      0      0      0 BMU
+lo              65536       97      0      0 0            97      0      0      0 LRU
+wlan0            1500    84636      0     10 0         43164      0      0      0 BMRU
+
+[0;34m------ System ------[0m
+-- Temperature --
+temp=37.4'C
+-- Throttled Status --
+throttled=0x0
+
+ [0;32mMetrics collection complete [0m
+Iteration 4
+No process supplied - running normal system scan
+ [0;34m Performance Metrics [0m 
+
+[0;34m------ CPU Usage and Load ------[0m
+--top--
+top - 21:33:04 up  9:34,  2 users,  load average: 0.28, 0.27, 0.15
+Tasks: 171 total,   1 running, 169 sleeping,   1 stopped,   0 zombie
+%Cpu(s):  2.1 us,  2.1 sy,  0.0 ni, 95.8 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem :   7820.7 total,   7060.3 free,    305.0 used,    556.0 buff/cache     
+MiB Swap:   2048.0 total,   2048.0 free,      0.0 used.   7515.8 avail Mem 
+
+--mpstat--
+Linux 6.12.47+rpt-rpi-v8 (headlesspi) 	14/12/25 	_aarch64_	(4 CPU)
+
+21:33:04     CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+21:33:04     all    0.15    0.00    0.18    1.03    0.00    0.01    0.00    0.00    0.00   98.62
+
+[0;34m------ RAM and Swap ------[0m
+--free--
+               total        used        free      shared  buff/cache   available
+Mem:           7.6Gi       304Mi       6.9Gi       9.3Mi       555Mi       7.3Gi
+Swap:          2.0Gi          0B       2.0Gi
+
+--vmstat--
+procs -----------memory---------- ---swap-- -----io---- -system-- -------cpu-------
+ r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st gu
+ 1  0      0 7229608  65008 504324    0    0    12   512  244    0  0  0 99  1  0  0
+
+[0;34m------Storage / IO speeds------[0m
+--df--
+Filesystem      Size  Used Avail Use% Mounted on
+udev            3.6G     0  3.6G   0% /dev
+tmpfs           1.6G  9.3M  1.6G   1% /run
+/dev/mmcblk0p2  114G  4.6G  105G   5% /
+tmpfs           3.9G     0  3.9G   0% /dev/shm
+tmpfs           5.0M   16K  5.0M   1% /run/lock
+tmpfs           1.0M     0  1.0M   0% /run/credentials/systemd-journald.service
+tmpfs           3.9G     0  3.9G   0% /tmp
+/dev/mmcblk0p1  510M   66M  445M  13% /boot/firmware
+tmpfs           1.0M     0  1.0M   0% /run/credentials/getty@tty1.service
+tmpfs           783M   12K  783M   1% /run/user/1000
+
+--iotop--
+Total DISK READ:         0.00 B/s | Total DISK WRITE:         0.00 B/s
+Current DISK READ:       0.00 B/s | Current DISK WRITE:       0.00 B/s
+Total DISK READ:         0.00 B/s | Total DISK WRITE:         0.00 B/s
+Current DISK READ:       0.00 B/s | Current DISK WRITE:       0.00 B/s
+Total DISK READ:         0.00 B/s | Total DISK WRITE:         0.00 B/s
+Current DISK READ:       0.00 B/s | Current DISK WRITE:       0.00 B/s
+
+--R/W Speeds--
+--Write--
+128+0 records in
+128+0 records out
+134217728 bytes (134 MB, 128 MiB) copied, 6.12454 s, 21.9 MB/s
+--Read--
+128+0 records in
+128+0 records out
+134217728 bytes (134 MB, 128 MiB) copied, 0.126774 s, 1.1 GB/s
+
+[0;34m------ Network ------[0m
+Netid State  Recv-Q Send-Q               Local Address:Port  Peer Address:Port Process
+udp   UNCONN 0      0                          0.0.0.0:51772      0.0.0.0:*           
+udp   UNCONN 0      0                          0.0.0.0:5353       0.0.0.0:*           
+udp   UNCONN 0      0                                *:44165            *:*           
+udp   UNCONN 0      0      [fe80::1dc7:ff5e:6f64:5220]:546              *:*           
+udp   UNCONN 0      0                                *:5353             *:*           
+udp   UNCONN 0      0                                *:30000            *:*           
+tcp   LISTEN 0      200                      127.0.0.1:30000      0.0.0.0:*           
+tcp   LISTEN 0      1024                     127.0.0.1:11211      0.0.0.0:*           
+tcp   LISTEN 0      128                        0.0.0.0:22         0.0.0.0:*           
+tcp   ESTAB  0      68                    192.168.1.64:22    192.168.1.94:49880       
+tcp   LISTEN 0      1024                         [::1]:11211         [::]:*           
+tcp   LISTEN 0      128                           [::]:22            [::]:*           
+
+Kernel Interface table
+Iface             MTU    RX-OK RX-ERR RX-DRP RX-OVR    TX-OK TX-ERR TX-DRP TX-OVR Flg
+eth0             1500        0      0      0 0             0      0      0      0 BMU
+lo              65536       97      0      0 0            97      0      0      0 LRU
+wlan0            1500    84760      0     10 0         43230      0      0      0 BMRU
+
+[0;34m------ System ------[0m
+-- Temperature --
+temp=39.4'C
+-- Throttled Status --
+throttled=0x0
+
+ [0;32mMetrics collection complete [0m
+Iteration 5
+No process supplied - running normal system scan
+ [0;34m Performance Metrics [0m 
+
+[0;34m------ CPU Usage and Load ------[0m
+--top--
+top - 21:34:14 up  9:36,  2 users,  load average: 0.14, 0.24, 0.15
+Tasks: 170 total,   1 running, 168 sleeping,   1 stopped,   0 zombie
+%Cpu(s):  0.0 us,  2.3 sy,  0.0 ni, 97.7 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem :   7820.7 total,   7056.9 free,    308.4 used,    556.0 buff/cache     
+MiB Swap:   2048.0 total,   2048.0 free,      0.0 used.   7512.4 avail Mem 
+
+--mpstat--
+Linux 6.12.47+rpt-rpi-v8 (headlesspi) 	14/12/25 	_aarch64_	(4 CPU)
+
+21:34:14     CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+21:34:14     all    0.15    0.00    0.18    1.03    0.00    0.01    0.00    0.00    0.00   98.62
+
+[0;34m------ RAM and Swap ------[0m
+--free--
+               total        used        free      shared  buff/cache   available
+Mem:           7.6Gi       308Mi       6.9Gi       9.3Mi       556Mi       7.3Gi
+Swap:          2.0Gi          0B       2.0Gi
+
+--vmstat--
+procs -----------memory---------- ---swap-- -----io---- -system-- -------cpu-------
+ r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st gu
+ 1  0      0 7226260  65028 504332    0    0    12   514  244    0  0  0 99  1  0  0
+
+[0;34m------Storage / IO speeds------[0m
+--df--
+Filesystem      Size  Used Avail Use% Mounted on
+udev            3.6G     0  3.6G   0% /dev
+tmpfs           1.6G  9.3M  1.6G   1% /run
+/dev/mmcblk0p2  114G  4.6G  105G   5% /
+tmpfs           3.9G     0  3.9G   0% /dev/shm
+tmpfs           5.0M   16K  5.0M   1% /run/lock
+tmpfs           1.0M     0  1.0M   0% /run/credentials/systemd-journald.service
+tmpfs           3.9G     0  3.9G   0% /tmp
+/dev/mmcblk0p1  510M   66M  445M  13% /boot/firmware
+tmpfs           1.0M     0  1.0M   0% /run/credentials/getty@tty1.service
+tmpfs           783M   12K  783M   1% /run/user/1000
+
+--iotop--
+Total DISK READ:         0.00 B/s | Total DISK WRITE:         0.00 B/s
+Current DISK READ:       0.00 B/s | Current DISK WRITE:       0.00 B/s
+Total DISK READ:         0.00 B/s | Total DISK WRITE:        35.30 K/s
+Current DISK READ:       0.00 B/s | Current DISK WRITE:      54.91 K/s
+Total DISK READ:         0.00 B/s | Total DISK WRITE:         3.92 K/s
+Current DISK READ:       0.00 B/s | Current DISK WRITE:       3.92 K/s
+
+--R/W Speeds--
+--Write--
+128+0 records in
+128+0 records out
+134217728 bytes (134 MB, 128 MiB) copied, 11.0426 s, 12.2 MB/s
+--Read--
+128+0 records in
+128+0 records out
+134217728 bytes (134 MB, 128 MiB) copied, 0.133265 s, 1.0 GB/s
+
+[0;34m------ Network ------[0m
+Netid State  Recv-Q Send-Q               Local Address:Port  Peer Address:Port Process
+udp   UNCONN 0      0                          0.0.0.0:51772      0.0.0.0:*           
+udp   UNCONN 0      0                          0.0.0.0:5353       0.0.0.0:*           
+udp   UNCONN 0      0                                *:44165            *:*           
+udp   UNCONN 0      0      [fe80::1dc7:ff5e:6f64:5220]:546              *:*           
+udp   UNCONN 0      0                                *:5353             *:*           
+udp   UNCONN 0      0                                *:30000            *:*           
+tcp   LISTEN 0      200                      127.0.0.1:30000      0.0.0.0:*           
+tcp   LISTEN 0      1024                     127.0.0.1:11211      0.0.0.0:*           
+tcp   LISTEN 0      128                        0.0.0.0:22         0.0.0.0:*           
+tcp   ESTAB  0      68                    192.168.1.64:22    192.168.1.94:50729       
+tcp   LISTEN 0      1024                         [::1]:11211         [::]:*           
+tcp   LISTEN 0      128                           [::]:22            [::]:*           
+
+Kernel Interface table
+Iface             MTU    RX-OK RX-ERR RX-DRP RX-OVR    TX-OK TX-ERR TX-DRP TX-OVR Flg
+eth0             1500        0      0      0 0             0      0      0      0 BMU
+lo              65536       97      0      0 0            97      0      0      0 LRU
+wlan0            1500    84901      0     10 0         43305      0      0      0 BMRU
+
+[0;34m------ System ------[0m
+-- Temperature --
+temp=39.4'C
+-- Throttled Status --
+throttled=0x0
+
+ [0;32mMetrics collection complete [0m

@@ -1,12 +1,14 @@
 #!/bin/bash
 
+LOGFILE="performance_$(date +%Y%m%d-%H%M%S).log"
+
 if [ -z "$1" ]; then # if the script argument is null or empty (-z) ($1 represents the first argument supplied)
     MODE="normal" # no need to grep for specific process
-    echo "No process supplied - running normal system scan"
+    echo "No process supplied - running normal system scan" | tee -a "$LOGFILE" # send output to the logfile and append (-a)
 else
     PROCESS="$1" # otherwise we assign the argument to a variable
     MODE="process" # change the script mode to process
-    echo "Monitoring specific process: $PROCESS"
+    echo "Monitoring specific process: $PROCESS" | tee -a "$LOGFILE"
 fi
 
 # Colour codes
@@ -15,16 +17,12 @@ GREEN='\033[0;32m'
 BLUE='\033[0;34m'
 NC='\033[0m'
 
-ssh reece@192.168.1.64 bash << SCRIPT # ssh into the server, "SCRIPT" acts as a heredoc limiter which allows us to feed multiple lines of input to a command. 
+ssh reece@192.168.1.64 bash << SCRIPT 2>&1 | tee -a "$LOGFILE" # ssh into the server, "SCRIPT" acts as a heredoc limiter which allows us to feed multiple lines of input to a command. 
 
 echo -e " ${BLUE} Performance Metrics ${NC} "  # -e tells bash to interpret escape sequences instead of printing them as they are. / ${VAR} allows bash to expand the variable which allows us to use it.
 echo
 
 echo -e "${BLUE}------ CPU Usage and Load ------${NC}"
-
-echo --uptime--
-uptime # calling uptime from the script
-echo
 
 echo --top--
 top -bn1 | head -5 # calling top from the script, in batch mode (-b) with only 1 iteration (n1). Head prints the first 10 lines, but we supply -5 to only give us 5 lines.
@@ -56,12 +54,14 @@ echo
 
 echo -e "--R/W Speeds--"
 
+
 echo --Write--
-dd if=/dev/zero of=~/sd_test.img bs=1M count=256 conv=fsync # 256 MB write test with forced disk sync, ensuring the test measures real write speed rather than cached writes.
-echo
+dd if=/dev/zero of=~/sd_test.img bs=1M count=128 conv=fsync # 128 MB write test with forced disk sync, ensuring the test measures real write speed rather than cached writes.
+sleep 1 # fix for output format sync error
 
 echo --Read--
 dd if=~/sd_test.img of=/dev/null bs=1M # Disk read performance test (discard output via /dev/null)
+
 
 rm ~/sd_test.img # delete the file that has been created
 
@@ -72,6 +72,12 @@ ss -tunap
 echo 
 netstat -i
 echo
+
+echo -e "${BLUE}------ System ------${NC}"
+echo -- Temperature --
+vcgencmd measure_temp
+echo -- Throttled Status --
+vcgencmd get_throttled
 
 if [ "$MODE" = "process" ]; # if we are in process mode
 then
@@ -96,5 +102,6 @@ fi
 echo
 echo -e " ${GREEN}Metrics collection complete ${NC}"
 
+# ends the heredoc block 
 SCRIPT
 
