@@ -223,18 +223,21 @@ Here is the expected output:
 
 ### Create a remote monitoring script (`monitor-server.sh`) that runs on your workstation, connects via SSH, and collects performance metrics from the server.
 
-The monitor-server.ps1 script is a powershell script that connects to the server via SSH and collects performance metrics such as CPU usage, memory usage, disk space, running processes, and network statistics. It lets me quickly check the health of the server from my client pc.
-
-Every line of code has been commented for clarity.
-
-You can view the remote monitoring script here: [monitor-server.ps1](scripts/monitor-server.ps1)
+The monitor-server.sh script is a bash script that connects to the server via SSH and collects performance metrics such as CPU usage, memory usage, disk space, running processes, and network statistics. It lets me quickly check the health of the server from my client pc. I have also added the functionality to specify a process to monitor.
 
 The script is ran like so:
 
-```powershell
-./monitor-server.ps1
+```bash
+./monitor-server.sh
+OR
+./monitor-server.sh PROCESSHERE
 ```
-Here is the output:
+
+Every line of code has been commented for clarity.
+
+You can view the remote monitoring script here: [monitor-server.sh](scripts/monitor-server.sh)
+
+Here is the output (Ran using the Git bash terminal):
 
 ![Monitor script output](img/week5/monitorOut.png)
 
