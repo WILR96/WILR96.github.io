@@ -20,7 +20,7 @@ data out of log files, which is then written to a summary log file.
 This ensures that later measurements reflect the impact of workloads 
 rather than background processes.
 
-Here is the script used to measure and filter data:[run_tests_5min.sh]
+Here is the script used to measure and filter data: [run_tests_5min.sh]
 (scripts/run_tests_5min.sh)
 
 And here is the log file output for the baseline (no unnessesary 
