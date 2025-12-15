@@ -151,14 +151,9 @@ Results
 
 Graphs
 
-<img src="img/week6/graphs/ffmpeg/image.png" width="10%">
-<img src="img/week6/graphs/ffmpeg/image-1.png" width="10%">
-<img src="img/week6/graphs/ffmpeg/image-2.png" width="10%">
-<img src="img/week6/graphs/ffmpeg/image-3.png" width="10%">
-<img src="img/week6/graphs/ffmpeg/image-4.png" width="10%">
-<img src="img/week6/graphs/ffmpeg/image-5.png" width="10%">
-<img src="img/week6/graphs/ffmpeg/image-6.png" width="10%">
-<img src="img/week6/graphs/ffmpeg/image-7.png" width="10%">
+<img src="img/week6/graphs/ffmpeg/image.png" width="10%"> <img src="img/week6/graphs/ffmpeg/image-1.png" width="10%"> <img src="img/week6/graphs/ffmpeg/image-2.png" width="10%">
+<img src="img/week6/graphs/ffmpeg/image-3.png" width="10%"> <img src="img/week6/graphs/ffmpeg/image-4.png" width="10%"> <img src="img/week6/graphs/ffmpeg/image-5.png" width="10%">
+<img src="img/week6/graphs/ffmpeg/image-6.png" width="10%"> <img src="img/week6/graphs/ffmpeg/image-7.png" width="10%">
 
 Analysis
 
