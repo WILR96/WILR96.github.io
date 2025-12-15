@@ -25,7 +25,7 @@ Here is the script used to measure and filter data:
 
 And here is the log file output for the baseline (no unnessesary 
 processes running): 
-[Summary.log](scripts/5minTest-Summary.log)
+[Summary.log](logs/Baseline.log)
 
 #### Baseline Performance Results and Analysis
 

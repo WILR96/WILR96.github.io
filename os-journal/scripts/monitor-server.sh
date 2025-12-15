@@ -17,7 +17,7 @@ GREEN='\033[0;32m'
 BLUE='\033[0;34m'
 NC='\033[0m'
 
-ssh reece@192.168.1.64 bash << SCRIPT 2>&1 | tee -a "$LOGFILE" # ssh into the server, "SCRIPT" acts as a heredoc limiter which allows us to feed multiple lines of input to a command. 
+ssh -p 8239 reece@192.168.1.64 bash << SCRIPT 2>&1 | tee -a "$LOGFILE" # ssh into the server, "SCRIPT" acts as a heredoc limiter which allows us to feed multiple lines of input to a command. 
 
 echo -e " ${BLUE} Performance Metrics ${NC} "  # -e tells bash to interpret escape sequences instead of printing them as they are. / ${VAR} allows bash to expand the variable which allows us to use it.
 echo
