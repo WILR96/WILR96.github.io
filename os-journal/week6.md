@@ -250,11 +250,11 @@ FFmpeg and Memcached were CPU-bound, with high load averages and low idle, while
 
 Memory Usage:
 
-Memcached used the most memory (~1.63 GiB), FFmpeg, SQLite, iperf, and LuantiServer remained low (~315–600 MiB). No swap was required for any workload.
+Memcached used the most memory (1.63 GiB), FFmpeg, SQLite, iperf, and LuantiServer remained low (315–600 MiB). No swap was required for any workload.
 
 Disk I/O:
 
-SQLite showed the heaviest disk load, with write speeds dropping from 35.5 → 12 MB/s. FFmpeg showed moderate writes; other workloads minimally stressed storage.
+SQLite showed the heaviest disk load, with write speeds dropping from 35.5 to 12 MB/s. FFmpeg showed moderate writes whilst other workloads minimally stressed storage.
 
 Network and Latency:
 
