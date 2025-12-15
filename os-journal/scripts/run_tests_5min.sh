@@ -4,12 +4,6 @@ LOGFILE="5minTest.log"
 SUMMARY="5minTest-Summary.log"
 
 
-for i in {1..5}; do
-    echo "Iteration $i" >> "$LOGFILE"
-    ./monitor-server.sh | tee -a "$LOGFILE"
-    sleep 60
-done
-
 echo "------TEST RESULTS------" | tee -a "$SUMMARY"
 echo
 echo "-- Load Averages --" | tee -a "$SUMMARY"
