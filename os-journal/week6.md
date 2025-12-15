@@ -31,7 +31,7 @@ processes running):
 
 The baseline measurements represent the system in an idle state, with 
 no user applications running other than essential background services
- and the monitoring script itself. The results provide a reference 
+and the monitoring script itself. The results provide a reference 
 point against which later workload tests can be compared.
 
 ### CPU and Load Analysis
@@ -129,12 +129,46 @@ application workloads in subsequent performance tests.
 
 ## 2. Testing applications
 
+This phase evaluates system behaviour under representative application 
+workloads. For each test, the application and monitoring script were 
+started simultaneously using a single shell command:
+
+Each workload was then exercised for approximately five minutes to 
+simulate typical usage patterns relevant to a headless Raspberry Pi 
+server. System metrics were collected at one-minute intervals using 
+the same monitoring methodology as the baseline test, ensuring results 
+are directly comparable.
+
 ### FFmpeg 
+
+Command used: 
+```bash
+ffmpeg -f lavfi -i testsrc=size=1280x720 -t 300 -pix_fmt yuv420p testsrc.mp4
+```
 Results
+
+![ffmpeg results](img/week6/ffmpeg5min.png)
 
 Graphs
 
+![Load average](img/week6/graphs/ffmpeg/image.png)
+![cpu usage](img/week6/graphs/ffmpeg/image-1.png)
+![Temperature](img/week6/graphs/ffmpeg/image-2.png)
+![Memory usage](img/week6/graphs/ffmpeg/image-3.png)
+![Read time ](img/week6/graphs/ffmpeg/image-4.png)
+![read time speed ](img/week6/graphs/ffmpeg/image-5.png)
+![write time ](img/week6/graphs/ffmpeg/image-6.png)
+![write time speed](img/week6/graphs/ffmpeg/image-7.png)
+
 Analysis
+
+FFmpeg encoding heavily loaded the CPU, with the 1-minute load average rising from ~0.2 at baseline to 6.87 which means the CPU is overloaded. CPU idle dropped from ~95% to as low as 6.8%, confirming a CPU-bound workload.
+
+Memory usage increased modestly (~305 MiB → ~600 MiB) with no swap usage. Disk write speeds varied between 12–27 MB/s, while read speeds remained high due to caching.
+
+CPU temperature peaked at 76.9 °C, but no throttling occurred, showing the Pi handled the workload stably.
+
+In summary, FFmpeg stresses CPU and thermal limits, while memory, disk, and network remain largely unaffected.
 
 ### Memcached 
 Results
