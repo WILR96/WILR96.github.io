@@ -1,0 +1,64 @@
+------TEST RESULTS------
+-- Load Averages --
+   1min  5min   15min
+1. 1.24, 1.10, 0.50
+2. 11.98, 4.65, 1.79
+3. 13.81, 6.47, 2.64
+4. 8.64, 6.77, 3.07
+5. 15.50, 9.27, 4.22
+-- CPU Usage (% idle) --
+1. 100.0 id
+2.   0.0 id
+3.  10.4 id
+4.   0.0 id
+5.  68.3 id
+-- Memory Usage --
+1. MiB Mem :   7820.7 total,   6482.8 free,    783.6 used,    656.6 buff/cache     
+2. MiB Mem :   7820.7 total,   6034.0 free,   1232.4 used,    656.7 buff/cache     
+3. MiB Mem :   7820.7 total,   5694.6 free,   1571.7 used,    656.9 buff/cache     
+4. MiB Mem :   7820.7 total,   5634.0 free,   1632.2 used,    656.9 buff/cache     
+5. MiB Mem :   7820.7 total,   5660.4 free,   1605.8 used,    656.9 buff/cache     
+-- Swap Usage --
+1. MiB Swap:   2048.0 total,   2048.0 free,      0.0 used.   7037.1 avail Mem 
+2. MiB Swap:   2048.0 total,   2048.0 free,      0.0 used.   6588.4 avail Mem 
+3. MiB Swap:   2048.0 total,   2048.0 free,      0.0 used.   6249.0 avail Mem 
+4. MiB Swap:   2048.0 total,   2048.0 free,      0.0 used.   6188.5 avail Mem 
+5. MiB Swap:   2048.0 total,   2048.0 free,      0.0 used.   6214.9 avail Mem 
+-- Disk Usage --
+1. /dev/mmcblk0p2  114G  4.6G  105G   5% /
+2. /dev/mmcblk0p2  114G  4.6G  105G   5% /
+3. /dev/mmcblk0p2  114G  4.6G  105G   5% /
+4. /dev/mmcblk0p2  114G  4.6G  105G   5% /
+5. /dev/mmcblk0p2  114G  4.6G  105G   5% /
+-- Disk I/O Speeds --
+--Write--
+1.  10.8442 s, 12.4 MB/s
+2.  11.3354 s, 11.8 MB/s
+3.  11.054 s, 12.1 MB/s
+4.  8.36601 s, 16.0 MB/s
+5.  10.0046 s, 13.4 MB/s
+--Read--
+1.  0.149802 s, 896 MB/s
+2.  0.25094 s, 535 MB/s
+3.  0.168519 s, 796 MB/s
+4.  0.109175 s, 1.2 GB/s
+5.  0.180508 s, 744 MB/s
+-- Network Interfaces --
+Iface             MTU    RX-OK RX-ERR RX-DRP RX-OVR    TX-OK TX-ERR TX-DRP TX-OV
+1. wlan0            1500   118309      0     10 0         59433      0      0      0 BMRU
+2. wlan0            1500   118869      0     10 0         59900      0      0      0 BMRU
+3. wlan0            1500   119648      0     10 0         60592      0      0      0 BMRU
+4. wlan0            1500   120677      0     10 0         61540      0      0      0 BMRU
+5. wlan0            1500   120916      0     10 0         61713      0      0      0 BMRU
+-- Temperature --
+1. temp=52.5'C
+2. temp=61.8'C
+3. temp=67.2'C
+4. temp=64.7'C
+5. temp=67.2'C
+-- Throttled Status --
+1. throttled=0x0
+2. throttled=0x0
+3. throttled=0x0
+4. throttled=0x0
+5. throttled=0x0

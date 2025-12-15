@@ -139,7 +139,7 @@ server. System metrics were collected at one-minute intervals using
 the same monitoring methodology as the baseline test, ensuring results 
 are directly comparable.
 
-### FFmpeg 
+### FFmpeg Analysis
 
 Command used: 
 ```bash
@@ -147,45 +147,127 @@ ffmpeg -f lavfi -i testsrc=size=1280x720 -t 300 -pix_fmt yuv420p testsrc.mp4
 ```
 Results
 
-![ffmpeg results](img/week6/ffmpeg5min.png)
+[ffmpeg results](logs/FFmpeg.log)
 
-Graphs
-
-<img src="img/week6/graphs/ffmpeg/image.png" width="10%"> <img src="img/week6/graphs/ffmpeg/image-1.png" width="10%"> <img src="img/week6/graphs/ffmpeg/image-2.png" width="10%">
-<img src="img/week6/graphs/ffmpeg/image-3.png" width="10%"> <img src="img/week6/graphs/ffmpeg/image-4.png" width="10%"> <img src="img/week6/graphs/ffmpeg/image-5.png" width="10%">
-<img src="img/week6/graphs/ffmpeg/image-6.png" width="10%"> <img src="img/week6/graphs/ffmpeg/image-7.png" width="10%">
-
-Analysis
-
-FFmpeg encoding heavily loaded the CPU, with the 1-minute load average rising from ~0.2 at baseline to 6.87 which means the CPU is overloaded. CPU idle dropped from ~95% to as low as 6.8%, confirming a CPU-bound workload.
+FFmpeg significantly stressed the CPU, with the 1-minute load average rising from 0.2 to 6.87, exceeding available cores and indicating CPU saturation. CPU idle fell to 6.8%, confirming a CPU-bound workload. This bottleneck could be mitigated through hardware acceleration or reduced encoding complexity.
 
 Memory usage increased modestly (~305 MiB → ~600 MiB) with no swap usage. Disk write speeds varied between 12–27 MB/s, while read speeds remained high due to caching.
 
-CPU temperature peaked at 76.9 °C, but no throttling occurred, showing the Pi handled the workload stably.
+CPU temperature peaked at 76.9 °C, but no throttling occurred, showing the Pi handled the workload stably however there is a potential increase in efficincy if I can get the temperature down. I could do this by installing a heatsink on the cpu or some other passive cooling addition.
 
 In summary, FFmpeg stresses CPU and thermal limits, while memory, disk, and network remain largely unaffected.
 
-### Memcached 
+### Memcached Analysis 
+
+Commands used: 
+```bash
+memcached -m 512 -p 11221 -u nobody
+memcslap -s 127.0.0.1:11221 -c 20 -e 100000 --test=get
+```
+
 Results
 
-Graphs
+[Memcached results](logs/Memcached.log)
 
-Analysis
-### SQlite 
+Memcached significantly stressed the CPU, with the 1-minute load average peaking at 15.50, far exceeding the available cores and indicating CPU saturation. CPU idle dropped to 0% during peak iterations, confirming a CPU-bound workload under high request load.
+
+Memory usage increased substantially (780 MiB - 1.63 GiB), which is expected for an in-memory cache. No swap usage occurred, showing sufficient physical RAM was available.
+
+Disk activity remained minimal, confirming Memcached operates almost entirely in memory. Network traffic increased steadily with no errors, indicating stable connectivity under load.
+
+CPU temperature peaked at 67.2 °C with no throttling, showing the system handled the workload safely.
+
+In summary, Memcached primarily stresses CPU and memory, with minimal disk impact and moderate network usage.
+
+
+### SQlite Analysis 
+Command used: 
+```bash
+sqlite3 test.db "CREATE TABLE perf_test (id INTEGER PRIMARY KEY, data TEXT);"
+
+for i in {1..5000}; do
+  sqlite3 test.db "INSERT INTO perf_test (data) VALUES ('test data $i');"
+done
+
+for i in {1..5000}; do
+  sqlite3 test.db "SELECT * FROM perf_test WHERE id=$i;" > /dev/null
+done
+```
+
 Results
 
-Graphs
+[SQlite results](logs/sqlite3.log)
 
-Analysis
-### iperf3 
+SQLite produced a moderate, bursty workload primarily affecting disk I/O rather than CPU. The 1-minute load average peaked at 1.20, remaining well below core saturation and indicating that the workload was not CPU-bound. CPU idle stayed high (72–100%), confirming minimal processor stress.
+
+Memory usage increased slightly from 319 MiB to 356 MiB, reflecting SQLite’s page caching, but no swap usage occurred, showing sufficient available RAM. Disk write speeds declined from an initial 35.5 MB/s to 12 MB/s as the test progressed, while read speeds remained high due to filesystem caching.
+
+CPU temperature remained low, peaking at 47.2 °C, with no throttling detected. Overall, SQLite stresses disk I/O more than CPU or memory, making storage performance the primary limiting factor rather than compute or thermal constraints.
+
+### iperf3 Analysis 
+Command used: 
+```bash
+iperf3 -s -u
+
+iperf3 -c 192.168.1.64 -t 300 -u 
+```
+
 Results
 
-Graphs
+[iperf3 results](logs/iperf3.log)
 
-Analysis
-### Luanti Server
+The iperf tests evaluated network performance under sustained load, covering both throughput (TCP) and latency/reliability (UDP).
+
+The TCP test transferred 409 GB over 5 minutes, achieving a consistent 11.7 Gbit/s on both sender and receiver with zero retransmissions. CPU load increased moderately (45–49% idle), memory usage remained low (315–325 MiB), and no network errors or drops were observed on wlan0, indicating that the Raspberry Pi could handle high-throughput traffic. The stable TCP throughput and absence of retransmissions also suggest low and consistent latency during the test.
+
+The UDP test at 1.05 Mbit/s confirmed network reliability under low-latency traffic. No packet loss occurred, and jitter was extremely low (0.000–0.122 ms), demonstrating minimal latency variation and highly stable wireless performance. CPU and memory usage remained minimal, and no interface errors or drops were detected.
+
+Overall, these results demonstrate that the Raspberry Pi can sustain high TCP throughput while maintaining low-latency, reliable UDP performance, with no evident network bottlenecks under the tested conditions.
+
+### Luanti Server Analysis
+Command used: 
+```bash
+ sudo ./luantiserver --gameid minetest
+```
+
 Results
 
-Graphs
+[Luanti Server results](logs/luantiserver.log)
 
-Analysis
+The LuantiServer workload produced very low system load, with 1-minute load averages peaking at 0.42, far below the Pi’s 4-core capacity. CPU idle remained extremely high (94–100%), confirming that the server imposes minimal CPU stress.
+
+Memory usage stayed stable at 315–330 MiB, with no swap usage, indicating ample free RAM and very light memory demand. Disk I/O showed moderate write speeds (12–20 MB/s) while read speeds were extremely high (1–1.4 GB/s), likely due to caching, confirming that storage was not a performance bottleneck.
+
+Network activity was low to moderate on wlan0, with no errors or drops affecting traffic. CPU temperature remained low, peaking at 49.6 °C, and no throttling was detected.
+
+Overall, LuantiServer runs as a lightweight service on the Raspberry Pi, stressing neither CPU, memory, nor storage, making it efficient for continuous operation without significant system impact.
+
+## Conclusion
+
+CPU Usage:
+
+FFmpeg and Memcached were CPU-bound, with high load averages and low idle, while SQLite, iperf, and LuantiServer used minimal CPU (idle 70–100%).
+
+Memory Usage:
+
+Memcached used the most memory (~1.63 GiB), FFmpeg, SQLite, iperf, and LuantiServer remained low (~315–600 MiB). No swap was required for any workload.
+
+Disk I/O:
+
+SQLite showed the heaviest disk load, with write speeds dropping from 35.5 → 12 MB/s. FFmpeg showed moderate writes; other workloads minimally stressed storage.
+
+Network and Latency:
+
+iperf TCP achieved 11.7 Gbit/s with zero retransmissions; UDP showed negligible jitter and no packet loss. LuantiServer had moderate network activity with no errors. CPU-bound workloads maintained acceptable service response times.
+
+Thermal Behaviour:
+
+Temperatures remained safe, peaking at 76.9 °C (FFmpeg). No throttling occurred under any workload.
+
+Bottlenecks and Optimisations:
+
+CPU-bound workloads could benefit from multi-threading or hardware acceleration. Disk-bound workloads like SQLite could be improved with faster storage or batching. Network performance was strong and stable.
+
+Summary:
+
+The Raspberry Pi handles lightweight services like LuantiServer efficiently, while CPU- and disk-intensive applications reveal clear bottlenecks. Memory and network performance were consistently robust, and system stability remained high across all tests.
