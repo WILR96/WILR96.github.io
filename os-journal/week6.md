@@ -151,14 +151,14 @@ Results
 
 Graphs
 
-![Load average](img/week6/graphs/ffmpeg/image.png)
-![cpu usage](img/week6/graphs/ffmpeg/image-1.png)
-![Temperature](img/week6/graphs/ffmpeg/image-2.png)
-![Memory usage](img/week6/graphs/ffmpeg/image-3.png)
-![Read time ](img/week6/graphs/ffmpeg/image-4.png)
-![read time speed ](img/week6/graphs/ffmpeg/image-5.png)
-![write time ](img/week6/graphs/ffmpeg/image-6.png)
-![write time speed](img/week6/graphs/ffmpeg/image-7.png)
+<img src="img/week6/graphs/ffmpeg/image.png)" width="45%">
+<img src="img/week6/graphs/ffmpeg/image-1.png)" width="45%">
+<img src="img/week6/graphs/ffmpeg/image-2.png)" width="45%">
+<img src="img/week6/graphs/ffmpeg/image-3.png)" width="45%">
+<img src="img/week6/graphs/ffmpeg/image-4.png)" width="45%">
+<img src="img/week6/graphs/ffmpeg/image-5.png)" width="45%">
+<img src="img/week6/graphs/ffmpeg/image-6.png)" width="45%">
+<img src="img/week6/graphs/ffmpeg/image-7.png)" width="45%">
 
 Analysis
 
