@@ -1,0 +1,51 @@
+No process supplied - running normal system scan
+ [0;34m Performance Metrics [0m 
+
+[0;34m------ CPU Usage and Load ------[0m
+--top--
+top - 21:23:25 up  4:25,  3 users,  load average: 0.00, 0.00, 0.00
+Tasks: 164 total,   1 running, 163 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  2.2 us,  0.0 sy,  0.0 ni, 97.8 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem :   7820.7 total,   7379.4 free,    282.1 used,    249.5 buff/cache     
+MiB Swap:   2048.0 total,   2048.0 free,      0.0 used.   7538.6 avail Mem 
+
+--mpstat--
+Linux 6.12.47+rpt-rpi-v8 (headlesspi) 	16/12/25 	_aarch64_	(4 CPU)
+
+21:23:25     CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+21:23:25     all    0.05    0.00    0.05    0.01    0.00    0.00    0.00    0.00    0.00   99.88
+
+[0;34m------ RAM and Swap ------[0m
+--free--
+               total        used        free      shared  buff/cache   available
+Mem:           7.6Gi       282Mi       7.2Gi       9.2Mi       249Mi       7.4Gi
+Swap:          2.0Gi          0B       2.0Gi
+
+--vmstat--
+procs -----------memory---------- ---swap-- -----io---- -system-- -------cpu-------
+ r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st gu
+ 1  0      0 7556392  25524 230096    0    0    14     0  110    0  0  0 100  0  0  0
+
+[0;34m------Storage / IO speeds------[0m
+--df--
+Filesystem      Size  Used Avail Use% Mounted on
+udev            3.6G     0  3.6G   0% /dev
+tmpfs           1.6G  9.3M  1.6G   1% /run
+/dev/mmcblk0p2  114G  5.1G  105G   5% /
+tmpfs           3.9G     0  3.9G   0% /dev/shm
+tmpfs           5.0M   16K  5.0M   1% /run/lock
+tmpfs           1.0M     0  1.0M   0% /run/credentials/systemd-journald.service
+tmpfs           3.9G     0  3.9G   0% /tmp
+/dev/mmcblk0p1  510M   66M  445M  13% /boot/firmware
+tmpfs           783M   12K  783M   1% /run/user/1000
+
+--iotop--
+Total DISK READ:         0.00 B/s | Total DISK WRITE:         0.00 B/s
+Current DISK READ:       0.00 B/s | Current DISK WRITE:       0.00 B/s
+Total DISK READ:         0.00 B/s | Total DISK WRITE:         0.00 B/s
+Current DISK READ:       0.00 B/s | Current DISK WRITE:       0.00 B/s
+Total DISK READ:         0.00 B/s | Total DISK WRITE:         0.00 B/s
+Current DISK READ:       0.00 B/s | Current DISK WRITE:       0.00 B/s
+
+--R/W Speeds--
+--Write--
