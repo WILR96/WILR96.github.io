@@ -11,7 +11,7 @@ from the Windows 11 workstation via SSH.
 
 ## Testing Methodology
 
-### 1. Baseline System Performance
+### Baseline System Performance
 
 Before introducing any workload, I recorded idle system metrics using 
 a simple script that logs usage over 5 minutes then uses grep to get
@@ -127,7 +127,7 @@ and provide a reliable reference point for evaluating the impact of
 application workloads in subsequent performance tests.
 
 
-## 2. Testing applications
+## Testing applications
 
 This phase evaluates system behaviour under representative application 
 workloads. For each test, the application and monitoring script were 
@@ -242,32 +242,78 @@ Network activity was low to moderate on wlan0, with no errors or drops affecting
 
 Overall, LuantiServer runs as a lightweight service on the Raspberry Pi, stressing neither CPU, memory, nor storage, making it efficient for continuous operation without significant system impact.
 
-## Conclusion
+## Tables and Graphs
 
-CPU Usage:
+### Results Table
 
-FFmpeg and Memcached were CPU-bound, with high load averages and low idle, while SQLite, iperf, and LuantiServer used minimal CPU (idle 70–100%).
+| Application     | Iteration | Load 1min | Load 5min | Load 15min | CPU Idle (%) | Mem Used (MiB) | Swap Used (MiB) | Disk Write (MB/s) | Disk Read (GB/s) | Temp (°C) |
+|-----------------|------|-------|-----------|------------|--------------|----------------|------------------|-------------------|------------------|-----------|
+| LuantiServer    | 1 | 0.17 | 0.06 | 0.16 | 95.6 | 329.2 | 0 | 16.3 | 1.4 | 46.7 |
+| LuantiServer    | 2 | 0.30 | 0.14 | 0.18 | 94.0 | 317.6 | 0 | 15.7 | 1.0 | 46.2 |
+| LuantiServer    | 3 | 0.37 | 0.21 | 0.20 | 100  | 331.9 | 0 | 12.3 | 1.3 | 49.6 |
+| LuantiServer    | 4 | 0.42 | 0.31 | 0.24 | 97.9 | 315.7 | 0 | 19.9 | 1.1 | 45.2 |
+| LuantiServer    | 5 | 0.27 | 0.31 | 0.25 | 100  | 317.4 | 0 | 12.1 | 1.1 | 44.3 |
+| SQLite          | 1 | 0.00 | 0.03 | 0.64 | 100  | 318.9 | 0 | 35.5 | 1.3 | 40.9 |
+| SQLite          | 2 | 0.97 | 0.32 | 0.69 | 73.3 | 340.9 | 0 | 16.4 | 1.3 | 39.4 |
+| SQLite          | 3 | 1.17 | 0.58 | 0.76 | 72.7 | 355.2 | 0 | 12.1 | 1.3 | 47.2 |
+| SQLite          | 4 | 0.74 | 0.64 | 0.77 | 97.7 | 324.6 | 0 | 12.1 | 1.0 | 41.3 |
+| SQLite          | 5 | 1.20 | 0.81 | 0.83 | 71.7 | 346.5 | 0 | 12.0 | 1.1 | 43.3 |
+| iperf3          | 1 | 1.31 | 0.61 | 0.68 | 45.7 | 318.3 | 0 | 16.3 | 0.895 | 55.5 |
+| iperf3          | 2 | 1.83 | 0.94 | 0.79 | 46.8 | 319.8 | 0 | 30.0 | 0.684 | 60.3 |
+| iperf3          | 3 | 2.03 | 1.20 | 0.90 | 48.9 | 320.2 | 0 | 11.9 | 0.879 | 61.3 |
+| iperf3          | 4 | 2.35 | 1.53 | 1.04 | 44.7 | 324.4 | 0 | 16.8 | 0.893 | 63.3 |
+| iperf3          | 5 | 1.87 | 1.55 | 1.09 | 48.8 | 313.8 | 0 | 13.9 | 0.680 | 61.8 |
+| FFmpeg          | 1 | 1.18 | 1.95 | 0.96 | 97.7 | 308.9 | 0 | 27.2 | 0.973 | 59.4 |
+| FFmpeg          | 2 | 4.99 | 3.01 | 1.40 | 6.8  | 597.7 | 0 | 12.1 | 1.000 | 72.0 |
+| FFmpeg          | 3 | 5.55 | 3.71 | 1.78 | 22.7 | 594.1 | 0 | 18.9 | 1.100 | 64.2 |
+| FFmpeg          | 4 | 5.33 | 3.95 | 2.01 | 19.6 | 602.0 | 0 | 13.3 | 1.000 | 75.4 |
+| FFmpeg          | 5 | 6.87 | 4.71 | 2.43 | 12.8 | 595.9 | 0 | 14.2 | 0.959 | 76.9 |
+| Memcached       | 1 | 1.24 | 1.10 | 0.50 | 100  | 783.6  | 0 | 12.4 | 0.896 | 52.5 |
+| Memcached       | 2 | 11.98| 4.65 | 1.79 | 0.0  | 1232.4 | 0 | 11.8 | 0.535 | 61.8 |
+| Memcached       | 3 | 13.81| 6.47 | 2.64 | 10.4 | 1571.7 | 0 | 12.1 | 0.796 | 67.2 |
+| Memcached       | 4 | 8.64 | 6.77 | 3.07 | 0.0  | 1632.2 | 0 | 16.0 | 1.200 | 64.7 |
+| Memcached       | 5 | 15.50| 9.27 | 4.22 | 68.3 | 1605.8 | 0 | 13.4 | 0.744 | 67.2 |
 
-Memory Usage:
 
-Memcached used the most memory (1.63 GiB), FFmpeg, SQLite, iperf, and LuantiServer remained low (315–600 MiB). No swap was required for any workload.
+### Load Averages
+LuantiServer and SQLite remain consistently below a load of 1, indicating very low CPU pressure. iperf3 shows moderate sustained load due to network processing. ffmpeg and Memcached generate the highest load averages, clearly demonstrating CPU-bound behaviour under sustained workloads:
+![alt text](docs/graphs/image.png)
+![alt text](docs/graphs/image-1.png)
+![alt text](docs/graphs/image-2.png)
 
-Disk I/O:
+### CPU Idle
+CPU idle closely mirrors load behaviour. LuantiServer and SQLite retain high idle time, while iperf3 reduces idle to around 47%. ffmpeg and Memcached show the lowest idle percentages, confirming heavy CPU utilisation:
+![alt text](docs/graphs/image-3.png)
 
-SQLite showed the heaviest disk load, with write speeds dropping from 35.5 to 12 MB/s. FFmpeg showed moderate writes whilst other workloads minimally stressed storage.
+### Memory Usage
+Most applications use ~320–340 MiB of RAM. ffmpeg increases memory usage moderately, while Memcached is a clear outlier, consuming over 1.3 GiB due to its in-memory design. No swap usage occurred:
+![alt text](docs/graphs/image-4.png)
 
-Network and Latency:
+### Disk I/O
+Disk write throughput remains relatively stable across workloads, with SQLite and iperf3 slightly higher. Disk read performance is consistent across all tests, indicating storage is not a bottleneck.
+![alt text](docs/graphs/image-6.png)
+![alt text](docs/graphs/image-7.png)
 
-iperf TCP achieved 11.7 Gbit/s with zero retransmissions; UDP showed negligible jitter and no packet loss. LuantiServer had moderate network activity with no errors. CPU-bound workloads maintained acceptable service response times.
-
-Thermal Behaviour:
-
-Temperatures remained safe, peaking at 76.9 °C (FFmpeg). No throttling occurred under any workload.
+### Temperature
+Temperatures rise in line with CPU load. LuantiServer and SQLite remain cool, iperf3 shows moderate increase, and ffmpeg reaches the highest temperatures. No thermal throttling was observed.
+![alt text](docs/graphs/image-5.png)
 
 Bottlenecks and Optimisations:
 
 CPU-bound workloads could benefit from multi-threading or hardware acceleration. Disk-bound workloads like SQLite could be improved with faster storage or batching. Network performance was strong and stable.
 
-Summary:
+## Week 3 Comparison
 
-The Raspberry Pi handles lightweight services like LuantiServer efficiently, while CPU- and disk-intensive applications reveal clear bottlenecks. Memory and network performance were consistently robust, and system stability remained high across all tests.
+The Week 6 results largely validated the expected resource profiles defined in Week 3, particularly for FFmpeg, SQLite, and iperf3. FFmpeg proved strongly CPU-bound with increased thermal output, while SQLite stressed disk I/O and iperf3 heavily utilised network resources with moderate CPU impact.
+
+However, Memcached and LuantiServer differed from initial expectations. Memcached consumed significantly more CPU under load than anticipated, despite behaving as expected in terms of memory usage. LuantiServer imposed far lower CPU and memory demands than predicted, highlighting how workload intensity and user activity influence real-world resource consumption.
+
+## Conclusion
+
+This evaluation showed how different workloads impact a Raspberry Pi OS Lite server across CPU, memory, disk, network, and thermal metrics. Baseline results confirmed the system operates efficiently under idle conditions, providing a reliable reference for comparison.
+
+CPU-intensive workloads such as FFmpeg and Memcached created the highest load and temperature increases, identifying the CPU as the primary bottleneck under sustained computation. Although no thermal throttling occurred, these results suggest that cooling improvements or workload optimisation could enhance performance. Memory usage varied by application, with Memcached consuming the most RAM as expected, while no workloads required swap, indicating sufficient physical memory.
+
+SQLite primarily stressed disk I/O, with declining write throughput over time highlighting storage as a limiting factor for write tasks. In comparison, iperf3 demonstrated stable high-throughput, low-latency network performance, and LuantiServer imposed minimal system overhead, making it suitable for continuous operation.
+
+Overall, the Raspberry Pi performs well for lightweight services and network workloads, but CPU- and disk-intensive applications expose clear performance limits. These findings reinforce the importance of matching workload demands to hardware capabilities in low-power deployments.
