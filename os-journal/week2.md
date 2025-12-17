@@ -7,9 +7,7 @@ All testing will be done from the client (Windows Machine) over SSH to the serve
 
 This script will be ran over SSH in the terminal and timestamped for logging and will be copied back to the client machine for analysis. I will use it to measure how the server handles different applications, as well as to see how I can learn to troubleshoot any bottlenecks or performance hurdles. 
 
-I will test the server under no application load to get a baseline, then use various applications in order to simulate real activity. I will also use the Linux task scheduler (cron) in order to run continuous logging to see how the performance changes over time.
-
-After collecting all the data, I will analyse the results to see any performance bottlenecks, focusing on CPU load, memory usage, I/O performance, and thermal behaviour.
+I will test the server under no application load to get a baseline, then use various applications in order to simulate real activity. After collecting all the data, I will analyse the results to see any performance bottlenecks, focusing on CPU load, memory usage, I/O performance, and thermal behaviour.
 
 These are the commands I’ll be using in order to test the performance of the server:
 
@@ -18,7 +16,7 @@ These are the commands I’ll be using in order to test the performance of the s
 
  Display running processes, showing CPU and memory usage. Used to see which processes are using the most resources.
  
-**uptime:**
+**uptime:** (no longer used, top shows uptime.)
 
 Shows how long the system has been running and provides the system load average.
 
@@ -44,14 +42,23 @@ Shows total and available disk space on all mounted filesystems. Useful for chec
 
 Monitors disk I/O activity in real time, showing which processes are reading or writing most heavily to the storage device.
 
-**hdparm -tT:**
+**hdparm -tT:** (did not work in tests)
 
 Performs a direct read speed test on the Raspberry Pi’s SD card, providing sequential and cached read performance metrics.
+
+**dd:** 
+
+Used to benchmark SD card read and write performance by creating test files and measuring raw I/O throughput, helping identify storage bottlenecks during performance testing.
+
 
 ### **Network Performance**
 **iperf:**
 
 Measures network bandwidth and throughput between the server and the client workstation.
+
+**ss -tunap:**
+
+Shows active and listening TCP/UDP connections with associated processes.
 
 **ping:**
 
