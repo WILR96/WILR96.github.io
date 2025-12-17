@@ -28,10 +28,12 @@ Using Windows also makes it easier to document my progress since I can record de
 
 Overall, using Windows 11 as the workstation gives me a stable, well-supported environment with all the tools I need for both server management and coursework documentation.
 
+A Linux desktop virtual machine could have been used as the workstation to provide full environmental isolation. However, using the host machine reduced resource overhead and more closely reflects real-world remote administration practices.
+
 ### Network Configuration Documentation
 The Raspberry Pi OS Lite server connects to the same local Wi-Fi network as the Windows 11 workstation.  
 
-All administration and access is performed remotely using SSH over port 22.
+All administration and access is performed remotely using SSH over port 22 (changed later in the journal).
 
 #### Network Overview:
 - Router network: "192.168.1.0/24"
