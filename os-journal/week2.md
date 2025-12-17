@@ -104,4 +104,4 @@ Check to see if it has been throttled due to power or temperature
 | Installing unknown packages or scripts | Could introduce malware or backdoors | Only install from trusted repositories, review scripts before execution |
 |Software vulnerabilities|Exploitation of known CVEs in outdated packages| Enable unattended-upgrades, keep system updated, monitor package versions |
 |Physical access to device |SD card extraction, offline tampering | Controlled physical environment, risk accepted due to deployment context |
-|Supply chain attacks |Compromised packages or updates | Package integrity checks, official repositories only
+|Supply chain attacks |Compromised packages or updates | Package integrity checks, official repositories only |
