@@ -63,6 +63,7 @@ After, we will need to configure the firewall to block all incoming connections 
 ![inoutUFW](/os-journal/img/week4/inoutUFW.png)
 
 Then we will add my client PC IP address to the allow list, whilst specifying port 22 as this is the port that ssh is currently hosted on. 
+
 ![ipUFW](/os-journal/img/week4/ipUFW.png)
 
 Then we can enable the service, and check that the rules have been added correctly:
