@@ -115,7 +115,7 @@ Finally, I checked the unattended-upgrades log file to confirm the service had a
 ```bash
 cat /var/log/unattended-upgrades/unattended-upgrades.log
 ```
-
+![upgradelog](</os-journal/img/week5/Screenshot 2025-12-17 134321.png>)
 
 ### Configure fail2ban for enhanced intrusion detection
 
@@ -225,7 +225,7 @@ Here is the expected output:
 
 The monitor-server.sh script is a bash script that connects to the server via SSH and collects performance metrics such as CPU usage, memory usage, disk space, running processes, and network statistics. It lets me quickly check the health of the server from my client pc. I have also added the functionality to specify a process to monitor.
 
-The script is ran like so:
+The script is ran like so (via Git Bash on client machine):
 
 ```bash
 ./monitor-server.sh
