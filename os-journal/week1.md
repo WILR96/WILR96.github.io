@@ -19,6 +19,28 @@ I considered three different operating systems:
 **Conclusion**
 Raspberry Pi OS Lite provides the best balance between performance, simplicity, and official hardware support. Its Debian foundation ensures reliability and access to a large repository of packages, as well as being optimised to run on a Raspberry Pi makes it the best choice for this project.
 
+### Setting up Raspberry Pi
+
+To install the OS onto the SD card, it first needs to be properly formatted. The easiest and most reliable way to do this is by using Raspberry Pi Imager. This tool automatically handles formatting and writes the OS image to the SD card, ensuring it’s bootable and correctly configured for the Raspberry Pi.
+
+First we download and install Raspberry Pi Imager from the official Raspberry Pi website:
+https://www.raspberrypi.com/software/
+
+
+Insert the SD card into your computer.
+
+Open Raspberry Pi Imager, select the desired OS, and choose your SD card as the target.
+![alt text](<img/week1/pi setup.png>)
+
+Change the settings to configure wifi startup:
+![alt text](<img/week1/pi setup2.png>)
+
+and ssh:
+![alt text](<img/week1/pi setup3.png>)
+
+Click Write. The tool will format the card and install the OS.
+
+Then all we have to do is insert it into the raspberry pi and turn it on.
 
 ### Workstation Configuration Decision
 
