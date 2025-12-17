@@ -277,25 +277,30 @@ Overall, LuantiServer runs as a lightweight service on the Raspberry Pi, stressi
 
 ### Load Averages
 LuantiServer and SQLite remain consistently below a load of 1, indicating very low CPU pressure. iperf3 shows moderate sustained load due to network processing. ffmpeg and Memcached generate the highest load averages, clearly demonstrating CPU-bound behaviour under sustained workloads:
+
 ![alt text](docs/graphs/image.png)
 ![alt text](docs/graphs/image-1.png)
 ![alt text](docs/graphs/image-2.png)
 
 ### CPU Idle
 CPU idle closely mirrors load behaviour. LuantiServer and SQLite retain high idle time, while iperf3 reduces idle to around 47%. ffmpeg and Memcached show the lowest idle percentages, confirming heavy CPU utilisation:
+
 ![alt text](docs/graphs/image-3.png)
 
 ### Memory Usage
 Most applications use ~320–340 MiB of RAM. ffmpeg increases memory usage moderately, while Memcached is a clear outlier, consuming over 1.3 GiB due to its in-memory design. No swap usage occurred:
+
 ![alt text](docs/graphs/image-4.png)
 
 ### Disk I/O
 Disk write throughput remains relatively stable across workloads, with SQLite and iperf3 slightly higher. Disk read performance is consistent across all tests, indicating storage is not a bottleneck.
+
 ![alt text](docs/graphs/image-6.png)
 ![alt text](docs/graphs/image-7.png)
 
 ### Temperature
 Temperatures rise in line with CPU load. LuantiServer and SQLite remain cool, iperf3 shows moderate increase, and ffmpeg reaches the highest temperatures. No thermal throttling was observed.
+
 ![alt text](docs/graphs/image-5.png)
 
 Bottlenecks and Optimisations:
