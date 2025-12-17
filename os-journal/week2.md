@@ -102,6 +102,6 @@ Check to see if it has been throttled due to power or temperature
 | Unauthorized local privilege escalation | Could allow users to read sensitive information or take over the server | restrict sudo, enable AppArmor, audit running services and cronjobs |
 | man-in-the-middle | intercept sensitive data | Use SSH keys, avoid unsecured networks, enforce firewall restrictions |
 | Installing unknown packages or scripts | Could introduce malware or backdoors | Only install from trusted repositories, review scripts before execution |
-|Software vulnerabilities|Exploitation of known CVEs in outdated packages| Enable unattended-upgrades, keep system updated, monitor package versions |
-|Physical access to device |SD card extraction, offline tampering | Controlled physical environment, risk accepted due to deployment context |
-|Supply chain attacks |Compromised packages or updates | Package integrity checks, official repositories only |
+| Software vulnerabilities | Exploitation of known CVEs in outdated packages | Enable unattended-upgrades, keep system updated, monitor package versions |
+| Physical access to device | SD card extraction, offline tampering | Controlled physical environment, risk accepted due to deployment context |
+| Supply chain attacks | Compromised packages or updates | Package integrity checks, official repositories only |
