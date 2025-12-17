@@ -95,10 +95,6 @@ Check to see if it has been throttled due to power or temperature
 | Scheduled Tasks | Check cron jobs and fix permissions | Prevents unwanted scripts from running |
 | Logging | Make sure logs exist and rotate them | Helps me spot issues and avoids logs filling up storage |
 
-
-
-
-
 ### Threat Model
 | Threat | Impact | Mitigation |
 |------|--------------|----------------|
