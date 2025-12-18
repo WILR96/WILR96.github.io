@@ -104,6 +104,10 @@ Running lsb_release -a on the server over ssh. This outputs the distribution nam
 This week helped me understand that even something as basic as ping relies on security policies. I thought that there was a problem with the connection or a routing problem, but it was just a firewall filter on my windows machine. This helped my reinforce the need for good troubleshooting steps rather than making assumptions about the cause of a problem.
 
 ### Sources
-[1] https://www.raspberrypi.com/documentation/computers/getting-started.html
-[2] https://www.raspberrypi.com/software/
-[3] https://learn.microsoft.com/en-us/powershell/module/netsecurity/new-netfirewallrule?view=windowsserver2025-ps
+[1]
+Raspberry Pi, “Raspberry Pi Documentation - Getting Started,” www.raspberrypi.com. https://www.raspberrypi.com/documentation/computers/getting-started.html
+
+[2]
+Raspberry Pi, “Raspberry Pi OS,” Raspberry Pi, 2025. https://www.raspberrypi.com/software/
+
+[3] JasonGerend, “New-NetFirewallRule (NetSecurity),” Microsoft.com, 2025. https://learn.microsoft.com/en-us/powershell/module/netsecurity/new-netfirewallrule?view=windowsserver2025-ps
