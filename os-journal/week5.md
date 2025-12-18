@@ -2,12 +2,9 @@
 
 ### Implement Access Control using SELinux or AppArmor, with documentation showing how to track and report on access control settings.
 
-AppArmor 
-https://gitlab.com/apparmor/apparmor/-/wikis/Documentation
-https://wiki.debian.org/AppArmor/HowToUse
+## AppArmor 
 
-
-As the distro im using (Debian 13) comes with AppArmor, I will check to see the status using:
+As the distro im using (Debian 13) comes with AppArmor, I will check to see the status using [1]:
 
 ```bash
  apparmor_status
@@ -17,14 +14,14 @@ This comes back with a message stating that the apparmor module is loaded, but t
 
 ![aanotload](/os-journal/img/week5/aafsnotload.png)
 
- According to the AppArmor documentation, Debian systems require these two kernel parameters to enable full AppArmor support: 
+ According to the AppArmor documentation [2], Debian systems require these two kernel parameters to enable full AppArmor support: 
 
 ```bash
 apparmor=1 security=apparmor
 ```
 
 
-However, Raspberry Pi devices store their boot configuration differently from standard Debian installations. The usual location (/etc/default/grub) does not exist on ARM systems. After checking the Raspberry Pi documentation, I found that kernel parameters must be added to /boot/firmware/cmdline.txt
+However, Raspberry Pi devices store their boot configuration differently from standard Debian installations. The usual location (/etc/default/grub) does not exist on ARM systems. After checking the Raspberry Pi documentation [3] , I found that kernel parameters must be added to /boot/firmware/cmdline.txt
 
 I opened the file using:
 ```bash
@@ -77,7 +74,7 @@ I verified the status again and saw that the profiles had been enabled and acces
 
 ### Configure automatic security updates with evidence of implementation
 
-On Debian 13, the recommended tool for automatic security updates is unattended-upgrades. This service automatically checks for security patches and installs them without user intervention, we can install it using: 
+On Debian 13, the recommended tool for automatic security updates is unattended-upgrades. This service automatically checks for security patches and installs them without user intervention [4], we can install it using: 
 
 ```bash
 sudo apt install unattended-upgrades
@@ -119,7 +116,7 @@ cat /var/log/unattended-upgrades/unattended-upgrades.log
 
 ### Configure fail2ban for enhanced intrusion detection
 
-Fail2Ban is a log-monitoring intrusion prevention tool. It watches system logs for repeated authentication failures and automatically blocks suspicious IP addresses using firewall rules.
+Fail2Ban is a log-monitoring intrusion prevention tool. It watches system logs for repeated authentication failures and automatically blocks suspicious IP addresses using firewall rules [5] .
 
 To begin, I installed Fail2Ban using:
 
@@ -240,5 +237,25 @@ You can view the remote monitoring script here: [monitor-server.sh](scripts/moni
 Here is the output (Ran using the Git bash terminal):
 
 ![Monitor script output](img/week5/monitorOut.png)
+
+
+### Sources
+
+
+[1]
+“AppArmor/HowToUse - Debian Wiki,” wiki.debian.org. https://wiki.debian.org/AppArmor/HowToUse
+
+[2]
+“Documentation · Wiki · AppArmor / apparmor · GitLab,” GitLab, Sep. 28, 2020. https://gitlab.com/apparmor/apparmor/-/wikis/Documentation
+
+[3]
+“Configuration - Raspberry Pi Documentation,” Raspberrypi.com, 2025. https://www.raspberrypi.com/documentation/computers/configuration.html#kernel-command-line-cmdline-txt (accessed Dec. 18, 2025).
+
+[4]
+H. James, “How to Enable Unattended Upgrades on Ubuntu/Debian,” LinuxBlog.io, Jul. 09, 2024. https://linuxblog.io/how-to-enable-unattended-upgrades-on-ubuntu-debian/
+
+[5]
+“How To Install Fail2ban On Debian - UpCloud,” UpCloud, Nov. 05, 2015. https://upcloud.com/resources/tutorials/install-fail2ban-debian/
+
 
 
