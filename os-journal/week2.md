@@ -105,3 +105,9 @@ Check to see if it has been throttled due to power or temperature
 | Software vulnerabilities | Exploitation of known CVEs in outdated packages | Enable unattended-upgrades, keep system updated, monitor package versions |
 | Physical access to device | SD card extraction, offline tampering | Controlled physical environment, risk accepted due to deployment context |
 | Supply chain attacks | Compromised packages or updates | Package integrity checks, official repositories only |
+
+
+[WEEK 3](/os-journal/week3.md)
+
+
+
