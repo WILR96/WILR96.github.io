@@ -6,7 +6,7 @@ The audit combined automated security scanning with lynis, network assessment vi
 
 ### Security Scanning with Lynis
 
-Lynis is a widely-used auditing tool for Unix-based systems. It scans for configuration issues, security risks and compliance gaps.
+Lynis is a widely-used auditing tool for Unix-based systems. It scans for configuration issues, security risks and compliance gaps. [1]
 
 #### Installation and Initial Scan
 ```bash
@@ -56,7 +56,7 @@ The UFW firewall was re-enabled and configured with a ip whitelist with a port s
 Mandatory Access Control was activated by enabling AppArmor at boot and setting all available and relevant profiles to enforce mode. Additional AppArmor profiles were installed to extend coverage to common system services, limiting the potential impact of service compromise.
 
 ![alt text](<img/week7/Screenshot 2025-12-15 161421.png>)
-Host-based intrusion prevention was introduced by installing and configuring Fail2Ban. The SSH jail was enabled and tuned to automatically block repeated authentication failures, providing active protection against brute-force attempts on the SSH service.
+Host-based intrusion prevention was introduced by configuring Fail2Ban. The SSH jail was enabled and tuned to automatically block repeated authentication failures, providing active protection against brute-force attempts on the SSH service.
 
 ![alt text](<img/week7/Screenshot 2025-12-16 220754.png>)
 System accountability and monitoring were improved by enabling audit logging and process accounting. The auditd service was installed and activated to provide an audit trail of system events, while acct and sysstat were enabled to record process execution history and system activity metrics for later analysis.
@@ -87,7 +87,7 @@ These results demonstrate that targeted remediation based on audit feedback can 
 
 ### Network Security Assessment with nmap
 
-nmap was used to assess network exposure and detect open ports:
+nmap was used to assess network exposure and detect open ports [2]:
 
 ```bash
 nmap -sV -v -Pn 192.168.1.64
@@ -252,3 +252,11 @@ Improvements included firewall enforcement, SSH hardening, intrusion prevention,
 The final Lynis hardening score increased from 64 to 81, reflecting a significant improvement in the system’s security posture. Remaining findings were primarily related to advanced or enterprise-focused controls and were formally documented as residual risks.
 
 Overall, the system now demonstrates defence-in-depth, principle of least privilege, and secure-by-default configuration, while maintaining operational stability and usability.
+
+### Sources
+
+[1]
+“Lynis Installation and Usage Guide - CISOfy,” cisofy.com. https://cisofy.com/documentation/lynis/
+
+[2]
+NMAP, “Nmap Documentation - Free Security Scanner For Network Exploration & Security Audits.,” nmap.org. https://nmap.org/docs.html
