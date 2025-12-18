@@ -105,7 +105,7 @@ This week helped me understand that even something as basic as ping relies on se
 
 ### Sources
 [1]
-Raspberry Pi, “Raspberry Pi Documentation - Getting Started,” www.raspberrypi.com. https://www.raspberrypi.com/documentation/computers/getting-started.html
+Raspberry Pi, “Raspberry Pi Documentation - Getting Started,” Raspberry Pi, 2025. https://www.raspberrypi.com/documentation/computers/getting-started.html
 
 [2]
 Raspberry Pi, “Raspberry Pi OS,” Raspberry Pi, 2025. https://www.raspberrypi.com/software/
