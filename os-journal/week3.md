@@ -133,18 +133,25 @@ All logs will be timestamped and collected via SSH for analysis on the client ma
 ### Sources
 [1]
 “Download FFmpeg,” Ffmpeg.org, 2019. https://www.ffmpeg.org/download.html (accessed Dec. 11, 2025).
+
 [2] 
 “Documentation,” www.ffmpeg.org. https://www.ffmpeg.org/documentation.html (accessed Dec. 11, 2025).
+
 [3] 
 “Server Guide,” Memcached.org, Sep. 02, 2024. https://docs.memcached.org/serverguide/ (accessed Dec. 11, 2025).
+
 [4]
 “Configuring,” Memcached.org, Sep. 04, 2024. https://docs.memcached.org/serverguide/configuring/ (accessed Dec. 11, 2025).
+
 [5] 
 “SQLite Download Page,” sqlite.org. https://sqlite.org/download.html (accessed Dec. 11, 2025).
+
 [6]
 “iPerf - Download iPerf3 and original iPerf pre-compiled binaries,” iperf.fr. https://iperf.fr/iperf-download.php (accessed Dec. 11, 2025).
+
 [7]
 “iPerf - iPerf3 and iPerf2 user documentation,” iperf.fr. https://iperf.fr/iperf-doc.php (accessed Dec. 11, 2025).
+
 [8]
 “Setting up a server,” Luanti Documentation, Sep. 08, 2025. https://docs.luanti.org/for-server-hosts/setup/ (accessed Dec. 11, 2025).
 
