@@ -155,4 +155,4 @@ All logs will be timestamped and collected via SSH for analysis on the client ma
 [8]
 “Setting up a server,” Luanti Documentation, Sep. 08, 2025. https://docs.luanti.org/for-server-hosts/setup/ (accessed Dec. 11, 2025).
 
-‌
+[WEEK 4](/os-journal/week4.md)‌
