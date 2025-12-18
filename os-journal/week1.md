@@ -10,6 +10,7 @@ The architecture diagram shows a remote administration model. The workstation co
 For my server distribution, I selected Raspberry Pi OS Lite (64bit) to run on a Raspberry Pi 4 due to the operating system being specifically optimised for Raspberry Pi hardware, as such, it provides the best environment to test on. It also has large community support as well as extensive documentation, and maintenance by the Raspberry Pi Foundation, meaning that this distro has long-term stability and compatibility.
 
 I considered three different operating systems:
+
 | Distro | Strengths | Weaknesses |
 |------|--------------|----------------|
 | Raspberry Pi OS Lite | Optimised for Pi, Lightweight | Fewer enterprise features |
