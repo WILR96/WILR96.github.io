@@ -238,6 +238,7 @@ Here is the output (Ran using the Git bash terminal):
 
 ![Monitor script output](img/week5/monitorOut.png)
 
+[WEEK 6](/os-journal/week6.md)
 
 ### Sources
 
