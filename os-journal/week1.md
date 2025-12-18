@@ -35,6 +35,7 @@ Change the settings to configure wifi startup:
 ![alt text](<img/week1/pi setup2.png>)
 
 and ssh:
+
 ![alt text](<img/week1/pi setup3.png>)
 
 Click Write. The tool will format the card and install the OS.
