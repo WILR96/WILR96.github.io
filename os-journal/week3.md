@@ -20,9 +20,7 @@ sudo apt update
 
 then we can start installing our selected applications.
 
-**FFmpeg:**
-Installation guide:
-https://trac.ffmpeg.org/wiki/CompilationGuide/Ubuntu
+**FFmpeg:** [1] [2]
 
 FFmpeg can be installed using:
 ```bash
@@ -36,9 +34,7 @@ ffmpeg -version
 ```
 ![ffmpeg](/os-journal/img/week3/ffmpeg.png)
 
-**Memcached:**
-Installation guide:
-https://docs.memcached.org/serverguide/
+**Memcached:** [3] [4]
 
 Memcached can be installed using:
 ```bash
@@ -52,9 +48,7 @@ memcached -V
 ```
 ![Memcached](/os-journal/img/week3/memcached.png)
 
-**SQlite:**
-Installation guide:
-https://packages.debian.org/search?keywords=sqlite3
+**SQlite:** [5]
 
 sqlite can be installed using:
 ```bash
@@ -68,9 +62,7 @@ sqlite3 -version
 ```
 ![SQliteins](/os-journal/img/week3/sqlite.png)
 
-**iperf3:**
-Installation guide:
-https://iperf.fr/iperf-download.php
+**iperf3:** [6] [7]
 
 iperf3 can be installed using:
 ```bash
@@ -84,9 +76,7 @@ iperf3 -v
 ```
 ![iperf3](/os-journal/img/week3/iperf3.png)
 
-**Luanti Server:**
-Installation guide:
-https://docs.luanti.org/for-server-hosts/setup/
+**Luanti Server:** [8]
 
 luantiserver can be installed using:
 ```bash
@@ -139,3 +129,23 @@ To monitor the Raspberry Pi’s performance while each application is running, I
 This approach ensures that all performance metrics are gathered consistently and automatically, making it easy to compare applications and identify any performance issues.
 
 All logs will be timestamped and collected via SSH for analysis on the client machine. Continuous logging via cron will allow performance trends over time to be visualized and compared across applications.
+
+### Sources
+[1]
+“Download FFmpeg,” Ffmpeg.org, 2019. https://www.ffmpeg.org/download.html (accessed Dec. 11, 2025).
+[2] 
+“Documentation,” www.ffmpeg.org. https://www.ffmpeg.org/documentation.html (accessed Dec. 11, 2025).
+[3] 
+“Server Guide,” Memcached.org, Sep. 02, 2024. https://docs.memcached.org/serverguide/ (accessed Dec. 11, 2025).
+[4]
+“Configuring,” Memcached.org, Sep. 04, 2024. https://docs.memcached.org/serverguide/configuring/ (accessed Dec. 11, 2025).
+[5] 
+“SQLite Download Page,” sqlite.org. https://sqlite.org/download.html (accessed Dec. 11, 2025).
+[6]
+“iPerf - Download iPerf3 and original iPerf pre-compiled binaries,” iperf.fr. https://iperf.fr/iperf-download.php (accessed Dec. 11, 2025).
+[7]
+“iPerf - iPerf3 and iPerf2 user documentation,” iperf.fr. https://iperf.fr/iperf-doc.php (accessed Dec. 11, 2025).
+[8]
+“Setting up a server,” Luanti Documentation, Sep. 08, 2025. https://docs.luanti.org/for-server-hosts/setup/ (accessed Dec. 11, 2025).
+
+‌
