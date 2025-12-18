@@ -21,11 +21,9 @@ Raspberry Pi OS Lite provides the best balance between performance, simplicity, 
 
 ### Setting up Raspberry Pi
 
-To install the OS onto the SD card, it first needs to be properly formatted. The easiest and most reliable way to do this is by using Raspberry Pi Imager. This tool automatically handles formatting and writes the OS image to the SD card, ensuring it’s bootable and correctly configured for the Raspberry Pi.
+To install the OS onto the SD card, it first needs to be properly formatted. The easiest and most reliable way to do this is by using Raspberry Pi Imager. This tool automatically handles formatting and writes the OS image to the SD card, ensuring it’s bootable and correctly configured for the Raspberry Pi [1]
 
-First we download and install Raspberry Pi Imager from the official Raspberry Pi website:
-https://www.raspberrypi.com/software/
-
+First we download and install Raspberry Pi Imager from the official Raspberry Pi website [2].
 
 Insert the SD card into your computer.
 
@@ -72,7 +70,7 @@ I was able to establish an SSH connection to the Raspberry Pi, but using ping fr
 
 ![Ping failed Server to client](/os-journal/img/week1/pingFailServer.png)
 
-This was because of the Windows Defender Firewall blocking pings by default. To allow pinging, I temporarily enabled "ICMPv4 echo requests" using the following PowerShell command:
+This was because of the Windows Defender Firewall blocking pings by default. To allow pinging, I temporarily enabled "ICMPv4 echo requests" using the following PowerShell command [2]:
 
 ```powershell
 New-NetFirewallRule -DisplayName "Allow pings" -Protocol ICMPv4 IcmpType 8 -Action Allow
@@ -104,3 +102,8 @@ Running lsb_release -a on the server over ssh. This outputs the distribution nam
 ![Running lsb_release -a on the server over ssh](/os-journal/img/week1/lsb_releaseServer.png)
 
 This week helped me understand that even something as basic as ping relies on security policies. I thought that there was a problem with the connection or a routing problem, but it was just a firewall filter on my windows machine. This helped my reinforce the need for good troubleshooting steps rather than making assumptions about the cause of a problem.
+
+### Sources
+[1] https://www.raspberrypi.com/documentation/computers/getting-started.html
+[2] https://www.raspberrypi.com/software/
+[3] https://learn.microsoft.com/en-us/powershell/module/netsecurity/new-netfirewallrule?view=windowsserver2025-ps
