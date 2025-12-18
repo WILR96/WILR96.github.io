@@ -322,3 +322,6 @@ CPU-intensive workloads such as FFmpeg and Memcached created the highest load an
 SQLite primarily stressed disk I/O, with declining write throughput over time highlighting storage as a limiting factor for write tasks. In comparison, iperf3 demonstrated stable high-throughput, low-latency network performance, and LuantiServer imposed minimal system overhead, making it suitable for continuous operation.
 
 Overall, the Raspberry Pi performs well for lightweight services and network workloads, but CPU- and disk-intensive applications expose clear performance limits. These findings reinforce the importance of matching workload demands to hardware capabilities in low-power deployments.
+
+
+[WEEK 7](/os-journal/week7.md)
