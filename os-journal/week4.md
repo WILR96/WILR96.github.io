@@ -91,6 +91,7 @@ If we wanted to create another one, we can use these commands to create a user a
 sudo adduser USERTOADD
 sudo usermod -aG sudo USERTOADD
 ```
+[WEEK 5](/os-journal/week5.md)
 
 ### Sources
 
